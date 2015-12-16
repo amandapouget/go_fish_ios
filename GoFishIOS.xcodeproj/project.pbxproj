@@ -15,6 +15,18 @@
 		0AB1A0451C1F5F4D003BA562 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AB1A0431C1F5F4D003BA562 /* LaunchScreen.storyboard */; };
 		0AB1A0501C1F5F4D003BA562 /* GoFishIOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB1A04F1C1F5F4D003BA562 /* GoFishIOSTests.m */; };
 		0AB1A05B1C1F5F4D003BA562 /* GoFishIOSUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB1A05A1C1F5F4D003BA562 /* GoFishIOSUITests.m */; };
+		0AB1A0691C1F5F87003BA562 /* CardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB1A0681C1F5F87003BA562 /* CardTests.m */; };
+		0AB1A06D1C1F5FF1003BA562 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB1A06C1C1F5FF1003BA562 /* Card.m */; };
+		0AB1A0701C1F60FC003BA562 /* GFHRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB1A06F1C1F60FC003BA562 /* GFHRepository.m */; };
+		0AB1A0731C1F6246003BA562 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AB1A0721C1F6246003BA562 /* AFNetworking.framework */; };
+		0AB1A0761C1F63A9003BA562 /* GFHDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB1A0751C1F63A9003BA562 /* GFHDatabase.m */; };
+		0AB1A0781C1F640C003BA562 /* RepositoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB1A0771C1F640C003BA562 /* RepositoryTests.m */; };
+		0AB1A0791C1F6489003BA562 /* GFHRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB1A06F1C1F60FC003BA562 /* GFHRepository.m */; };
+		0AB1A07A1C1F654C003BA562 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AB1A0721C1F6246003BA562 /* AFNetworking.framework */; };
+		0AB1A07D1C1F6D43003BA562 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB1A07C1C1F6D43003BA562 /* Player.m */; };
+		0AB1A0821C207212003BA562 /* MatchPerspectiveTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB1A0811C207212003BA562 /* MatchPerspectiveTests.m */; };
+		0AB1A0841C207E5A003BA562 /* PlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB1A0831C207E5A003BA562 /* PlayerTests.m */; };
+		0AB1A0861C2095FD003BA562 /* MatchPerspective.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB1A07F1C207144003BA562 /* MatchPerspective.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +63,21 @@
 		0AB1A0561C1F5F4D003BA562 /* GoFishIOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoFishIOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AB1A05A1C1F5F4D003BA562 /* GoFishIOSUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoFishIOSUITests.m; sourceTree = "<group>"; };
 		0AB1A05C1C1F5F4D003BA562 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0AB1A0681C1F5F87003BA562 /* CardTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardTests.m; sourceTree = "<group>"; };
+		0AB1A06B1C1F5FF1003BA562 /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
+		0AB1A06C1C1F5FF1003BA562 /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
+		0AB1A06E1C1F60FC003BA562 /* GFHRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFHRepository.h; sourceTree = "<group>"; };
+		0AB1A06F1C1F60FC003BA562 /* GFHRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFHRepository.m; sourceTree = "<group>"; };
+		0AB1A0721C1F6246003BA562 /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = Carthage/Build/iOS/AFNetworking.framework; sourceTree = SOURCE_ROOT; };
+		0AB1A0741C1F63A9003BA562 /* GFHDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFHDatabase.h; sourceTree = "<group>"; };
+		0AB1A0751C1F63A9003BA562 /* GFHDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFHDatabase.m; sourceTree = "<group>"; };
+		0AB1A0771C1F640C003BA562 /* RepositoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepositoryTests.m; sourceTree = "<group>"; };
+		0AB1A07B1C1F6D43003BA562 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		0AB1A07C1C1F6D43003BA562 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		0AB1A07E1C207144003BA562 /* MatchPerspective.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchPerspective.h; sourceTree = "<group>"; };
+		0AB1A07F1C207144003BA562 /* MatchPerspective.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchPerspective.m; sourceTree = "<group>"; };
+		0AB1A0811C207212003BA562 /* MatchPerspectiveTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchPerspectiveTests.m; sourceTree = "<group>"; };
+		0AB1A0831C207E5A003BA562 /* PlayerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AB1A0731C1F6246003BA562 /* AFNetworking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AB1A07A1C1F654C003BA562 /* AFNetworking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +133,7 @@
 				0AB1A0381C1F5F4D003BA562 /* AppDelegate.h */,
 				0AB1A0391C1F5F4D003BA562 /* AppDelegate.m */,
 				0AB1A03B1C1F5F4D003BA562 /* ViewController.h */,
+				0AB1A06A1C1F5FA3003BA562 /* Models */,
 				0AB1A03C1C1F5F4D003BA562 /* ViewController.m */,
 				0AB1A03E1C1F5F4D003BA562 /* Main.storyboard */,
 				0AB1A0411C1F5F4D003BA562 /* Assets.xcassets */,
@@ -117,6 +147,7 @@
 		0AB1A0351C1F5F4D003BA562 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0AB1A0721C1F6246003BA562 /* AFNetworking.framework */,
 				0AB1A0361C1F5F4D003BA562 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -127,6 +158,10 @@
 			children = (
 				0AB1A04F1C1F5F4D003BA562 /* GoFishIOSTests.m */,
 				0AB1A0511C1F5F4D003BA562 /* Info.plist */,
+				0AB1A0831C207E5A003BA562 /* PlayerTests.m */,
+				0AB1A0681C1F5F87003BA562 /* CardTests.m */,
+				0AB1A0771C1F640C003BA562 /* RepositoryTests.m */,
+				0AB1A0811C207212003BA562 /* MatchPerspectiveTests.m */,
 			);
 			path = GoFishIOSTests;
 			sourceTree = "<group>";
@@ -140,6 +175,23 @@
 			path = GoFishIOSUITests;
 			sourceTree = "<group>";
 		};
+		0AB1A06A1C1F5FA3003BA562 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0AB1A06B1C1F5FF1003BA562 /* Card.h */,
+				0AB1A06C1C1F5FF1003BA562 /* Card.m */,
+				0AB1A06E1C1F60FC003BA562 /* GFHRepository.h */,
+				0AB1A06F1C1F60FC003BA562 /* GFHRepository.m */,
+				0AB1A0741C1F63A9003BA562 /* GFHDatabase.h */,
+				0AB1A0751C1F63A9003BA562 /* GFHDatabase.m */,
+				0AB1A07B1C1F6D43003BA562 /* Player.h */,
+				0AB1A07C1C1F6D43003BA562 /* Player.m */,
+				0AB1A07E1C207144003BA562 /* MatchPerspective.h */,
+				0AB1A07F1C207144003BA562 /* MatchPerspective.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -150,6 +202,7 @@
 				0AB1A02E1C1F5F4D003BA562 /* Sources */,
 				0AB1A02F1C1F5F4D003BA562 /* Frameworks */,
 				0AB1A0301C1F5F4D003BA562 /* Resources */,
+				0AB1A0711C1F6185003BA562 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -265,6 +318,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0AB1A0711C1F6185003BA562 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/AFNetworking.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0AB1A02E1C1F5F4D003BA562 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -273,6 +343,11 @@
 				0AB1A03D1C1F5F4D003BA562 /* ViewController.m in Sources */,
 				0AB1A03A1C1F5F4D003BA562 /* AppDelegate.m in Sources */,
 				0AB1A0371C1F5F4D003BA562 /* main.m in Sources */,
+				0AB1A0701C1F60FC003BA562 /* GFHRepository.m in Sources */,
+				0AB1A0861C2095FD003BA562 /* MatchPerspective.m in Sources */,
+				0AB1A0761C1F63A9003BA562 /* GFHDatabase.m in Sources */,
+				0AB1A07D1C1F6D43003BA562 /* Player.m in Sources */,
+				0AB1A06D1C1F5FF1003BA562 /* Card.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +355,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AB1A0841C207E5A003BA562 /* PlayerTests.m in Sources */,
+				0AB1A0781C1F640C003BA562 /* RepositoryTests.m in Sources */,
 				0AB1A0501C1F5F4D003BA562 /* GoFishIOSTests.m in Sources */,
+				0AB1A0691C1F5F87003BA562 /* CardTests.m in Sources */,
+				0AB1A0821C207212003BA562 /* MatchPerspectiveTests.m in Sources */,
+				0AB1A0791C1F6489003BA562 /* GFHRepository.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +493,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = GoFishIOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rolemodelsoftware.GoFishIOS;
@@ -424,6 +508,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = GoFishIOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rolemodelsoftware.GoFishIOS;
@@ -435,6 +523,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = GoFishIOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rolemodelsoftware.GoFishIOSTests;
@@ -447,6 +539,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = GoFishIOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rolemodelsoftware.GoFishIOSTests;
