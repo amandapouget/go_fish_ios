@@ -10,6 +10,7 @@
 
 NSString * const GFHUserEmailKey = @"email";
 NSString * const GFHUserTokenKey = @"token";
+NSString * const GFHUserExternalIdKey = @"id";
 
 @implementation User
 
@@ -17,6 +18,7 @@ NSString * const GFHUserTokenKey = @"token";
     User *user = [User new];
     user.email = userInfo[GFHUserEmailKey];
     user.token = userInfo[GFHUserTokenKey];
+    user.externalId = userInfo[GFHUserExternalIdKey];
     database.user = user;
     return user;
 }

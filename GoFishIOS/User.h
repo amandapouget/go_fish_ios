@@ -12,10 +12,12 @@
 
 extern NSString * const GFHUserEmailKey;
 extern NSString * const GFHUserTokenKey;
+extern NSString * const GFHUserExternalIdKey;
 
 @interface User : NSObject
 @property (nonatomic, strong) NSString *email;
 @property (nonatomic, strong) NSString *token;
+@property (nonatomic, strong) NSString *externalId;
 
 + (instancetype)newWithAttributes:(NSDictionary *)userInfo inDatabase:(GFHDatabase *)database;
 @end

@@ -53,7 +53,8 @@ static NSString * const INVALID_LOGIN_ERROR = @"invalid email or password";
 
 - (void)loginWithSuccess:(EmptyBlock)success failure:(BlockWithString)failure withEmail:(NSString *)email withPassword:(NSString *)password {
     [self.requestSerializer setAuthorizationHeaderFieldWithUsername:email password:password];
-    [self POST:@"/api/authenticate" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nonnull responseObject) {
+    [self POST:@"/api/authenticate" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *_Nullable responseObject) {
+        NSLog(@"%@", responseObject);
         [User newWithAttributes:responseObject inDatabase:self.database];
         if (success) {
             success();
@@ -68,12 +69,15 @@ static NSString * const INVALID_LOGIN_ERROR = @"invalid email or password";
 
 - (id)serializeFailure:(NSError *)error {
     NSError *serializeError;
-    NSData *errorResponse = error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey];
-    id errorResponseJSON = [NSJSONSerialization JSONObjectWithData:errorResponse options:NSJSONReadingMutableContainers error:&serializeError];
+    id errorResponseJSON = @{@"error": @"Unable to log in at this time."};
+    NSData *errorResponse = [error.userInfo objectForKey:AFNetworkingOperationFailingURLResponseDataErrorKey];
+    if (errorResponse) {
+        errorResponseJSON = [NSJSONSerialization JSONObjectWithData:errorResponse options:NSJSONReadingMutableContainers error:&serializeError];
+    }
     if (serializeError) {
         NSLog(@"Could not serialize JSON response from server: %@", serializeError);
-        errorResponseJSON = @{@"error": @"Unknown error occured"};
     }
+    NSLog(@"login error: %@", error);
     return errorResponseJSON;
 }
 

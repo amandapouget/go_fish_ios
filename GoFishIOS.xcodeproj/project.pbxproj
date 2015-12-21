@@ -43,6 +43,7 @@
 		0AD4C1B51C2484B100385FF4 /* user_login_invalid_json_fixture.json in Resources */ = {isa = PBXBuildFile; fileRef = 0AD4C1B41C2484B100385FF4 /* user_login_invalid_json_fixture.json */; };
 		0AD4C1B71C24C03400385FF4 /* URLMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD4C1B61C24C03400385FF4 /* URLMock.framework */; };
 		0AD4C1BA1C24C09F00385FF4 /* GFHMockServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4C1B91C24C09F00385FF4 /* GFHMockServer.m */; };
+		0AE827DE1C28729D00261231 /* GFHMatchNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE827DD1C28729D00261231 /* GFHMatchNewViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +131,8 @@
 		0AD4C1B61C24C03400385FF4 /* URLMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = URLMock.framework; path = Carthage/Build/iOS/URLMock.framework; sourceTree = SOURCE_ROOT; };
 		0AD4C1B81C24C09F00385FF4 /* GFHMockServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFHMockServer.h; sourceTree = "<group>"; };
 		0AD4C1B91C24C09F00385FF4 /* GFHMockServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFHMockServer.m; sourceTree = "<group>"; };
+		0AE827DC1C28729D00261231 /* GFHMatchNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFHMatchNewViewController.h; sourceTree = "<group>"; };
+		0AE827DD1C28729D00261231 /* GFHMatchNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFHMatchNewViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +200,8 @@
 				0A045C2C1C21EE0700A5006E /* GFHPlayerViewController.m */,
 				0AD4C1AF1C23165C00385FF4 /* GFHLogInViewController.h */,
 				0AD4C1B01C23165C00385FF4 /* GFHLogInViewController.m */,
+				0AE827DC1C28729D00261231 /* GFHMatchNewViewController.h */,
+				0AE827DD1C28729D00261231 /* GFHMatchNewViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -469,6 +474,7 @@
 				0A045C2D1C21EE0700A5006E /* GFHPlayerViewController.m in Sources */,
 				0AB1A0701C1F60FC003BA562 /* GFHRepository.m in Sources */,
 				0AB1A0861C2095FD003BA562 /* MatchPerspective.m in Sources */,
+				0AE827DE1C28729D00261231 /* GFHMatchNewViewController.m in Sources */,
 				0A137F051C21FE3000D10B65 /* GFHCardCollectionCell.m in Sources */,
 				0AD4C1AA1C23105700385FF4 /* User.m in Sources */,
 				0AB1A0761C1F63A9003BA562 /* GFHDatabase.m in Sources */,

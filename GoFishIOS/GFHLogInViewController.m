@@ -22,11 +22,17 @@
     [[GFHRepository sharedRepository] loginWithSuccess:^{
         if ([[GFHRepository sharedRepository] loggedIn]) {
             printf("LOGGED IN!");
-//            something like the next line to set the user on the match/new controller and go to that controller
-//            self.playerViewController.player = self.matchPerspective.player;
+            [self dismissViewControllerAnimated:YES completion:nil];
         }
     } failure:^(NSString *errorMessage){
-//      display your login was invalid on the view page
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Login Failure"
+                                                                       message:errorMessage
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction * action) {}];
+        [alert addAction:defaultAction];
+        [self presentViewController:alert animated:YES completion:nil];
+        
     } withEmail:self.emailField.text withPassword:self.passwordField.text];
 }
 
