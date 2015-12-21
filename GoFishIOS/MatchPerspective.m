@@ -9,17 +9,25 @@
 #import "MatchPerspective.h"
 #import "Player.h"
 
-@interface MatchPerspective()
-- (NSMutableArray *)makeOpponents:(NSArray *)opponentsInfo;
-@end
+NSString * const GFHMatchPerspectiveNameKey = @"name";
+NSString * const GFHMatchPerspectiveCardsKey = @"cards";
+NSString * const GFHMatchPerspectiveBooksKey = @"books";
+NSString * const GFHMatchPerspectiveIconKey = @"icon";
+NSString * const GFHMatchPerspectiveIdKey = @"id";
+NSString * const GFHMatchPerspectiveRankKey = @"rank";
+NSString * const GFHMatchPerspectiveSuitKey = @"suit";
+NSString * const GFHMatchPerspectiveMessageKey = @"message";
+NSString * const GFHMatchPerspectivePlayerKey = @"player";
+NSString * const GFHMatchPerspectiveOpponentsKey = @"opponents";
+NSString * const GFHMatchPerspectiveScoresKey = @"scores";
 
 @implementation MatchPerspective
-+ (instancetype)newWithJSON:(NSDictionary *)gameInfo inDatabase:(GFHDatabase *)database {
++ (instancetype)newWithAttributes:(NSDictionary *)gameInfo inDatabase:(GFHDatabase *)database {
     MatchPerspective *matchPerspective = [MatchPerspective new];
-    matchPerspective.message = gameInfo[@"message"];
-    matchPerspective.player = [Player newWithAttributes:gameInfo[@"player"]];
-    matchPerspective.opponents = [matchPerspective makeOpponents:gameInfo[@"opponents"]];
-    matchPerspective.scores = gameInfo[@"scores"];
+    matchPerspective.message = gameInfo[GFHMatchPerspectiveMessageKey];
+    matchPerspective.player = [Player newWithAttributes:gameInfo[GFHMatchPerspectivePlayerKey]];
+    matchPerspective.opponents = [matchPerspective makeOpponents:gameInfo[GFHMatchPerspectiveOpponentsKey]];
+    matchPerspective.scores = gameInfo[GFHMatchPerspectiveScoresKey];
     database.matchPerspective = matchPerspective;
     return matchPerspective;
 }

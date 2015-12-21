@@ -56,7 +56,7 @@ NSString * const SUITS = @"clubs diamonds hearts spades";
 }
 
 - (BOOL)compareRankAndSuit:(Card *)card {
-    return (([self.rank isEqual:card.rank]) && ([self.suit isEqual:card.suit]));
+    return [self.rank isEqual:card.rank] && [self.suit isEqual:card.suit];
 }
 
 - (BOOL)isEqual:(Card *)card {

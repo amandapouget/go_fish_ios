@@ -9,9 +9,11 @@
 #import "GFHRepository.h"
 #import "GFHDatabase.h"
 #import "MatchPerspective.h"
+#import "User.h"
 
 static GFHRepository *_sharedRepository = nil;
 static NSString * const BASE_URL = @"http://localhost:3000";
+static NSString * const INVALID_LOGIN_ERROR = @"invalid email or password";
 
 @interface GFHRepository()
 @property (nonatomic, strong) GFHDatabase *database;
@@ -30,13 +32,14 @@ static NSString * const BASE_URL = @"http://localhost:3000";
     GFHRepository *repository = [[self alloc] initWithBaseURL:[NSURL URLWithString:BASE_URL]];
     repository.database = [GFHDatabase sharedDatabase];
     repository.responseSerializer = [AFJSONResponseSerializer serializer];
+    repository.requestSerializer = [AFJSONRequestSerializer serializer];
     return repository;
 }
 
 - (void)loadMatchPerspectiveWithSuccess:(EmptyBlock)success failure:(EmptyBlock)failure {
     [self GET:@"/simulate_start" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nonnull responseObject) {
         if (responseObject) {
-            [MatchPerspective newWithJSON:responseObject inDatabase:self.database];
+            [MatchPerspective newWithAttributes:responseObject inDatabase:self.database];
         }
         if (success) {
             success();
@@ -46,5 +49,35 @@ static NSString * const BASE_URL = @"http://localhost:3000";
             failure();
         }
     }];
+}
+
+- (void)loginWithSuccess:(EmptyBlock)success failure:(BlockWithString)failure withEmail:(NSString *)email withPassword:(NSString *)password {
+    [self.requestSerializer setAuthorizationHeaderFieldWithUsername:email password:password];
+    [self POST:@"/api/authenticate" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nonnull responseObject) {
+        [User newWithAttributes:responseObject inDatabase:self.database];
+        if (success) {
+            success();
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSDictionary *failureError = [self serializeFailure:error];
+        if (failure) {
+            failure(failureError[@"error"]);
+        }
+    }];
+}
+
+- (id)serializeFailure:(NSError *)error {
+    NSError *serializeError;
+    NSData *errorResponse = error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey];
+    id errorResponseJSON = [NSJSONSerialization JSONObjectWithData:errorResponse options:NSJSONReadingMutableContainers error:&serializeError];
+    if (serializeError) {
+        NSLog(@"Could not serialize JSON response from server: %@", serializeError);
+        errorResponseJSON = @{@"error": @"Unknown error occured"};
+    }
+    return errorResponseJSON;
+}
+
+- (BOOL)loggedIn {
+    return self.database.user != nil;
 }
 @end

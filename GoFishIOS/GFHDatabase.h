@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+@class User;
 @class MatchPerspective;
 
 @interface GFHDatabase : NSObject
 
 @property (nonatomic, strong) MatchPerspective *matchPerspective;
+@property (nonatomic, strong) User *user;
 
 + (instancetype)sharedDatabase;
 

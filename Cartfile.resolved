@@ -1,1 +1,3 @@
-github "AFNetworking/AFNetworking" "3.0.2"
+github "AFNetworking/AFNetworking" "3.0.4"
+github "square/SocketRocket" "0.4.2"
+github "twotoasters/URLMock" "1.3.1"

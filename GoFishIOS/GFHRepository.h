@@ -11,8 +11,11 @@
 @import AFNetworking;
 
 typedef void (^EmptyBlock)();
+typedef void (^BlockWithString)(NSString *);
 
 @interface GFHRepository : AFHTTPSessionManager
 + (instancetype)sharedRepository;
 - (void)loadMatchPerspectiveWithSuccess:(EmptyBlock)success failure:(EmptyBlock)failure;
+- (void)loginWithSuccess:(EmptyBlock)success failure:(BlockWithString)failure withEmail:(NSString *)email withPassword:(NSString *)password;
+- (BOOL)loggedIn;
 @end

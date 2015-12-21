@@ -1,0 +1,58 @@
+{
+    "message": "Anna, click card, player and me to request cards!",
+    "opponents": [
+        {
+            "icon": "/assets/players/player_dino.png",
+            "id": 4723,
+            "name": "Bob"
+        }
+    ],
+    "player": {
+        "books": [],
+        "cards": [
+            {
+                "icon": "/assets/cards/d8.png",
+                "rank": "eight",
+                "suit": "diamonds"
+            },
+            {
+                "icon": "/assets/cards/c10.png",
+                "rank": "ten",
+                "suit": "clubs"
+            },
+            {
+                "icon": "/assets/cards/c5.png",
+                "rank": "five",
+                "suit": "clubs"
+            },
+            {
+                "icon": "/assets/cards/c11.png",
+                "rank": "jack",
+                "suit": "clubs"
+            },
+            {
+                "icon": "/assets/cards/h10.png",
+                "rank": "ten",
+                "suit": "hearts"
+            }
+        ],
+        "icon": "/assets/players/player_bee.png",
+        "id": 4722,
+        "name": "Anna"
+    },
+    "player_index": 0,
+    "scores": [
+        [
+            "Anna",
+            0
+        ],
+        [
+            "Bob",
+            0
+        ],
+        [
+            "Fish Left",
+            42
+        ]
+    ]
+}

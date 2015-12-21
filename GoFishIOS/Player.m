@@ -7,34 +7,29 @@
 //
 
 #import "Player.h"
-#import "GFHDatabase.h"
 #import "Card.h"
-
-@interface Player()
-- (NSMutableArray *)makeCards:(NSArray *)cards;
-- (NSMutableArray *)makeBooks:(NSArray *)cards;
-@end
+#import "MatchPerspective.h"
 
 @implementation Player
 
 + (instancetype)newWithAttributes:(NSDictionary *)attributes {
     Player *player = [Player new];
-    player.name = attributes[@"name"];
-    if (attributes[@"cards"]) {
-        player.cards = [player makeCards:attributes[@"cards"]];
+    player.name = attributes[GFHMatchPerspectiveNameKey];
+    if (attributes[GFHMatchPerspectiveCardsKey]) {
+        player.cards = [player makeCards:attributes[GFHMatchPerspectiveCardsKey]];
     }
-    if (attributes[@"books"]) {
-        player.books = [player makeBooks:attributes[@"books"]];
+    if (attributes[GFHMatchPerspectiveBooksKey]) {
+        player.books = [player makeBooks:attributes[GFHMatchPerspectiveBooksKey]];
     }
-    player.icon = attributes[@"icon"];
-    player.externalId = attributes[@"id"];
+    player.icon = attributes[GFHMatchPerspectiveIconKey];
+    player.externalId = attributes[GFHMatchPerspectiveIdKey];
     return player;
 }
 
 - (NSMutableArray *)makeCards:(NSArray *)cards {
     NSMutableArray *playerCards = [NSMutableArray new];
     for (NSDictionary *card in cards) {
-        Card *playerCard = [Card newWithRank:card[@"rank"] withSuit:card[@"suit"] withIcon:card[@"icon"]];
+        Card *playerCard = [Card newWithRank:card[GFHMatchPerspectiveRankKey] withSuit:card[GFHMatchPerspectiveSuitKey] withIcon:card[GFHMatchPerspectiveIconKey]];
         [playerCards addObject: playerCard];
     }
     return playerCards;

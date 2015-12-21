@@ -12,11 +12,6 @@ static GFHDatabase *_sharedDatabase;
 
 @implementation GFHDatabase
 
-+ (instancetype)new {
-    GFHDatabase *database = [[GFHDatabase alloc] init];
-    return database;
-}
-
 + (instancetype)sharedDatabase {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{

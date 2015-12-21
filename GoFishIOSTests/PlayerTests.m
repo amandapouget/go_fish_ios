@@ -23,23 +23,9 @@
 
 - (void)setUp {
     [super setUp];
-    self.responseObject = @{
-                                 @"message":@"Amanda, click card, player and me to request cards!",
-                                 @"player":@{
-                                         @"id":@32,
-                                         @"name":@"Amanda",
-                                         @"cards":@[
-                                                 @{@"rank":@"three",@"suit":@"hearts",@"icon":@"/assets/cards/h3.png"},
-                                                 @{@"rank":@"six",@"suit":@"spades",@"icon":@"/assets/cards/s6.png"},
-                                                 @{@"rank":@"six",@"suit":@"clubs",@"icon":@"/assets/cards/c6.png"},
-                                                 @{@"rank":@"jack",@"suit":@"spades",@"icon":@"/assets/cards/s11.png"},
-                                                 @{@"rank":@"nine",@"suit":@"spades",@"icon":@"/assets/cards/s9.png"}],
-                                         @"books":@[],
-                                         @"icon":@"/assets/players/player_bee.png"},
-                                 @"player_index":@0,
-                                 @"opponents":@[
-                                         @{@"id":@33,@"name":@"Bob",@"icon":@"/assets/players/player_dino.png"}],
-                                 @"scores":@[@[@"Amanda",@0],@[@"Bob",@0],@[@"Fish Left",@42]]};
+    NSString *path = [[NSBundle bundleForClass:self.class] pathForResource:@"match_json_fixture" ofType:@"json"];
+    NSData *data = [[NSData alloc] initWithContentsOfFile:path];
+    self.responseObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
 }
 
 - (void)testNewWithAttributes {
