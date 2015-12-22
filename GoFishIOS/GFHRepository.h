@@ -16,7 +16,7 @@ typedef void (^BlockWithString)(NSString *);
 @interface GFHRepository : AFHTTPSessionManager
 + (instancetype)sharedRepository;
 - (void)getNumberOfPlayersWithSuccess:(EmptyBlock)success failure:(EmptyBlock)failure;
-- (void)loadMatchPerspectiveWithSuccess:(EmptyBlock)success failure:(EmptyBlock)failure;
+- (void)loadMatchPerspectiveWithSuccess:(EmptyBlock)success failure:(EmptyBlock)failure withMatchExternalId:(NSNumber *)matchExternalId;
 - (void)loginWithSuccess:(EmptyBlock)success failure:(BlockWithString)failure withEmail:(NSString *)email withPassword:(NSString *)password;
 - (BOOL)loggedIn;
 @end

@@ -12,9 +12,6 @@
 
 static GFHMockServer *_sharedHelper;
 
-static NSString * const USERNAME_KEY = @"username";
-static NSString * const PASSWORD_KEY = @"password";
-
 @implementation GFHMockServer
 
 + (GFHMockServer *)sharedHelper {
@@ -25,33 +22,32 @@ static NSString * const PASSWORD_KEY = @"password";
     return _sharedHelper;
 }
 
-//- (void)mockLoadMatchPerspectiveResponse {
-//    [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest * _Nonnull request) {
-//        return [request.URL.relativePath rangeOfString:@"/api/matches/\\d+" options:NSRegularExpressionSearch].location != NSNotFound;
-//    } withStubResponse:^OHHTTPStubsResponse * _Nonnull(NSURLRequest * _Nonnull request) {
-//        if ([self matchesBasicAuthToken:request withToken:@"dsgdwzuwxkd7d_T3aVWb"]) {
-//            return [self JSONResponseWithStatus:200 body:@{
-//                                                           @"email": @"mandysimon88@gmail.com",
-//                                                           @"authentication_token": @"valid_token",
-//                                                           @"id":@12345
-//                                                           }];
-//        } else {
-//            return [self JSONResponseWithStatus:401 body:@{
-//                                                           @"error": @"Invalid username or password"
-//                                                           }];
-//        }
-//    }];
-//}
+- (void)mockLoadMatchPerspectiveResponse {
+    [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest * _Nonnull request) {
+        return [request.URL.relativePath rangeOfString:@"/api/matches/\\d+" options:NSRegularExpressionSearch].location != NSNotFound;
+    } withStubResponse:^OHHTTPStubsResponse * _Nonnull(NSURLRequest * _Nonnull request) {
+        if ([self matchesToken:request withToken:@"valid_token"]) {
+            NSString *path = [[NSBundle bundleForClass:self.class] pathForResource:@"match_json_fixture" ofType:@"json"];
+            NSData *data = [[NSData alloc] initWithContentsOfFile:path];
+            NSDictionary *fakeResponseObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+            return [self JSONResponseWithStatus:200 body:fakeResponseObject];
+        } else {
+            return [self JSONResponseWithStatus:401 body:@{
+                                                           @"error": @"Token is invalid."
+                                                           }];
+        }
+    }];
+}
 
 - (void)mockAuthenticationResponse {
     [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest * _Nonnull request) {
         return [request.URL.relativePath rangeOfString:@"/api/authenticate"].location != NSNotFound;
     } withStubResponse:^OHHTTPStubsResponse * _Nonnull(NSURLRequest * _Nonnull request) {
-        if ([self matchesBasicAuthCredentials:request withUsername:@"mandysimon88@gmail.com" withPassword:@"rose0212"]) {
+        if ([self matchesBasicAuthCredentials:request withUsername:@"valid_email" withPassword:@"valid_password"]) {
             return [self JSONResponseWithStatus:200 body:@{
-                @"email": @"mandysimon88@gmail.com",
+                @"email": @"valid_email",
                 @"authentication_token": @"valid_token",
-                @"id":@12345
+                @"id":@"valid_id"
             }];
         } else {
             return [self JSONResponseWithStatus:401 body:@{
@@ -71,14 +67,11 @@ static NSString * const PASSWORD_KEY = @"password";
     return [username isEqual:requestUsername] && [password isEqual:requestPassword];
 }
 
-//- (BOOL)matchesBasicAuthToken:(NSURLRequest *)request withToken:(NSString *)authentication_token {
-//    NSString *encoded = [request allHTTPHeaderFields][@"Authorization"];
-//    NSData *dataToDecode = [[NSData alloc] initWithBase64EncodedString:[encoded substringFromIndex:6] options:NSDataBase64DecodingIgnoreUnknownCharacters];
-//    NSString *decoded = [[NSString alloc] initWithData:dataToDecode encoding:NSUTF8StringEncoding];
-//    NSArray *components = [decoded componentsSeparatedByString:@":"];
-//    NSString *requestToken = components[0];
-//    return [authentication_token isEqual:requestToken];
-//}
+- (BOOL)matchesToken:(NSURLRequest *)request withToken:(NSString *)authentication_token {
+    NSString *authorizationHeader = [request allHTTPHeaderFields][@"Authorization"];
+    NSString *requestToken = [authorizationHeader substringFromIndex:12];
+    return [authentication_token isEqual:requestToken];
+}
 
 - (OHHTTPStubsResponse *)JSONResponseWithStatus:(int)status body:(id)body {
     NSData *data = [NSJSONSerialization dataWithJSONObject:body options:NSJSONWritingPrettyPrinted error:NULL];

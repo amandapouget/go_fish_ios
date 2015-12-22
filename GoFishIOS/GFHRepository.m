@@ -53,8 +53,10 @@ static NSString * const INVALID_LOGIN_ERROR = @"invalid email or password";
     }];
 }
 
-- (void)loadMatchPerspectiveWithSuccess:(EmptyBlock)success failure:(EmptyBlock)failure {
-    [self GET:@"/simulate_start" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
+- (void)loadMatchPerspectiveWithSuccess:(EmptyBlock)success failure:(EmptyBlock)failure withMatchExternalId:(NSNumber *)matchExternalId {
+    [self.requestSerializer setValue:[NSString stringWithFormat:@"Token token=%@", self.database.user.authentication_token] forHTTPHeaderField:@"Authorization"];
+    NSString *matchUrl = [NSString stringWithFormat:@"/api/matches/%@", matchExternalId];
+    [self GET:matchUrl parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
         if (responseObject) {
             [MatchPerspective newWithAttributes:responseObject inDatabase:self.database];
         }

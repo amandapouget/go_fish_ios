@@ -46,27 +46,27 @@
 }
 
 - (void)testLoadMatchPerspective {
+    [self mockLogIn];
+    [[GFHMockServer sharedHelper]mockLoadMatchPerspectiveResponse];
     XCTestExpectation *expectation = [self expectationWithDescription:@"Load MatchPerspective"];
     [self.repository loadMatchPerspectiveWithSuccess:^{
         XCTAssert(self.repository.database.matchPerspective != nil);
         [expectation fulfill];
-    } failure:nil];
+    } failure:nil withMatchExternalId:@1];
     [self waitForExpectationsWithTimeout:4.0 handler:nil];
 }
 
-// good login information (user does exist)
 - (void)testLogInToServerWithGoodInfo {
     [[GFHMockServer sharedHelper]mockAuthenticationResponse];
     XCTestExpectation *expectation = [self expectationWithDescription:@"Login with Good User Info"];
     [self.repository loginWithSuccess:^{
         XCTAssert(self.repository.database.user.authentication_token != nil);
         [expectation fulfill];
-    } failure:nil withEmail:@"mandysimon88@gmail.com" withPassword:@"rose0212"];
+    } failure:nil withEmail:@"valid_email" withPassword:@"valid_password"];
     [self waitForExpectationsWithTimeout:4.0 handler:nil];
     XCTAssert(self.repository.database.user.authentication_token != nil);
 }
 
-// bad login information (user does not exist)
 - (void) testLogInToServerWithBadInfo {
     [[GFHMockServer sharedHelper]mockAuthenticationResponse];
     XCTestExpectation *expectation = [self expectationWithDescription:@"Login with Bad User Info"];
@@ -90,6 +90,12 @@
         [expectation fulfill];
     }failure:nil withEmail:@"mandysimon88@gmail.com" withPassword:@"rose0212"];
     [self waitForExpectationsWithTimeout:4.0 handler:nil];
-    XCTAssert(self.repository.database.user.authentication_token != nil);
+}
+
+- (void)mockLogIn {
+    self.repository.database.user = [User new];
+    self.repository.database.user.authentication_token = @"valid_token";
+    self.repository.database.user.email = @"valid_email";
+    self.repository.database.user.externalId = @"valid_id";
 }
 @end

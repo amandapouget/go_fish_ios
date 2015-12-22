@@ -13,6 +13,7 @@
 + (GFHMockServer *)sharedHelper;
 
 - (void)mockAuthenticationResponse;
+- (void)mockLoadMatchPerspectiveResponse;
 - (void)resetMocks;
 
 @end

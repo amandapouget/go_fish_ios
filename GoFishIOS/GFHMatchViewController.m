@@ -15,6 +15,7 @@
 
 
 @interface GFHMatchViewController ()
+@property (nonatomic, strong) NSNumber *matchExternalId;
 @property (nonatomic, strong) MatchPerspective *matchPerspective;
 @property (nonatomic, strong) GFHPlayerViewController *playerViewController;
 @end
@@ -34,7 +35,7 @@
     [[GFHRepository sharedRepository] loadMatchPerspectiveWithSuccess:^{
         self.matchPerspective = [GFHDatabase sharedDatabase].matchPerspective;
         self.playerViewController.player = self.matchPerspective.player;
-    } failure:nil];
+    } failure:nil withMatchExternalId:self.matchExternalId];
 }
 
 - (void)didReceiveMemoryWarning {
