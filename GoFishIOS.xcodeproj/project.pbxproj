@@ -41,9 +41,9 @@
 		0AD4C1B11C23165C00385FF4 /* GFHLogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4C1B01C23165C00385FF4 /* GFHLogInViewController.m */; };
 		0AD4C1B31C2482D800385FF4 /* user_login_valid_json_fixture.json in Resources */ = {isa = PBXBuildFile; fileRef = 0AD4C1B21C2482D800385FF4 /* user_login_valid_json_fixture.json */; };
 		0AD4C1B51C2484B100385FF4 /* user_login_invalid_json_fixture.json in Resources */ = {isa = PBXBuildFile; fileRef = 0AD4C1B41C2484B100385FF4 /* user_login_invalid_json_fixture.json */; };
-		0AD4C1B71C24C03400385FF4 /* URLMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AD4C1B61C24C03400385FF4 /* URLMock.framework */; };
 		0AD4C1BA1C24C09F00385FF4 /* GFHMockServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4C1B91C24C09F00385FF4 /* GFHMockServer.m */; };
 		0AE827DE1C28729D00261231 /* GFHMatchNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE827DD1C28729D00261231 /* GFHMatchNewViewController.m */; };
+		0AE827E01C28A15700261231 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE827DF1C28A15700261231 /* OHHTTPStubs.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,11 +128,11 @@
 		0AD4C1B01C23165C00385FF4 /* GFHLogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFHLogInViewController.m; sourceTree = "<group>"; };
 		0AD4C1B21C2482D800385FF4 /* user_login_valid_json_fixture.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user_login_valid_json_fixture.json; sourceTree = "<group>"; };
 		0AD4C1B41C2484B100385FF4 /* user_login_invalid_json_fixture.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user_login_invalid_json_fixture.json; sourceTree = "<group>"; };
-		0AD4C1B61C24C03400385FF4 /* URLMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = URLMock.framework; path = Carthage/Build/iOS/URLMock.framework; sourceTree = SOURCE_ROOT; };
 		0AD4C1B81C24C09F00385FF4 /* GFHMockServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFHMockServer.h; sourceTree = "<group>"; };
 		0AD4C1B91C24C09F00385FF4 /* GFHMockServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFHMockServer.m; sourceTree = "<group>"; };
 		0AE827DC1C28729D00261231 /* GFHMatchNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFHMatchNewViewController.h; sourceTree = "<group>"; };
 		0AE827DD1C28729D00261231 /* GFHMatchNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFHMatchNewViewController.m; sourceTree = "<group>"; };
+		0AE827DF1C28A15700261231 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,7 +142,6 @@
 			files = (
 				0A045C241C21D89500A5006E /* CFNetwork.framework in Frameworks */,
 				0A045C221C21D88F00A5006E /* Security.framework in Frameworks */,
-				0AD4C1B71C24C03400385FF4 /* URLMock.framework in Frameworks */,
 				0A045C261C21D9E600A5006E /* SocketRocket.framework in Frameworks */,
 				0A045C201C21D88700A5006E /* SystemConfiguration.framework in Frameworks */,
 				0A045C1E1C21D87700A5006E /* libicucore.tbd in Frameworks */,
@@ -156,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AB1A07A1C1F654C003BA562 /* AFNetworking.framework in Frameworks */,
+				0AE827E01C28A15700261231 /* OHHTTPStubs.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,7 +255,7 @@
 		0AB1A0351C1F5F4D003BA562 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				0AD4C1B61C24C03400385FF4 /* URLMock.framework */,
+				0AE827DF1C28A15700261231 /* OHHTTPStubs.framework */,
 				0A045C251C21D9E600A5006E /* SocketRocket.framework */,
 				0A045C1D1C21D87700A5006E /* libicucore.tbd */,
 				0A045C231C21D89500A5006E /* CFNetwork.framework */,
@@ -344,6 +344,7 @@
 				0AB1A0471C1F5F4D003BA562 /* Sources */,
 				0AB1A0481C1F5F4D003BA562 /* Frameworks */,
 				0AB1A0491C1F5F4D003BA562 /* Resources */,
+				0AE827E11C28A19800261231 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -454,7 +455,20 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/AFNetworking.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SocketRocket.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/URLMock.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "";
+		};
+		0AE827E11C28A19800261231 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/OHHTTPStubs.framework",
 			);
 			outputPaths = (
 			);
@@ -669,6 +683,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -685,6 +700,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",

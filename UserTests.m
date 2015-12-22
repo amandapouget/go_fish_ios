@@ -29,7 +29,7 @@
 - (void)testNewWithAttributes {
     User *user = [User newWithAttributes:self.responseObject inDatabase:self.database];
     XCTAssertEqual([user email], self.responseObject[@"email"]);
-    XCTAssertEqual([user token], self.responseObject[@"token"]);
+    XCTAssertEqual([user authentication_token], self.responseObject[@"token"]);
     XCTAssertEqual([user externalId], self.responseObject[@"id"]);
     XCTAssertTrue(self.database.user != nil);
 }

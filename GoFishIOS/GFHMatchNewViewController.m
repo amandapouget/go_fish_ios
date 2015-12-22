@@ -22,33 +22,28 @@ NSString * const GFHPusherKey = @"39cc3ae7664f69e97e12";
 
 @interface GFHMatchNewViewController ()
 @property PTPusher *pusher;
+@property NSArray *numberOfPlayers;
+@property NSInteger chosenNumberOfPlayers;
 @end
 
 @implementation GFHMatchNewViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     if ([[GFHRepository sharedRepository] loggedIn]) {
-//        subscribe to pusher and listen for game send event
-        self.pusher = [PTPusher pusherWithKey:GFHPusherKey delegate:nil encrypted:YES];
-        PTPusherChannel *channel = [self.pusher subscribeToChannelNamed:[NSString stringWithFormat:@"waiting_for_players_channel_%@", [GFHDatabase sharedDatabase].user.externalId]];
-        [channel bindToEventNamed:@"send_to_game_event" target:self action:@selector(handlePusherEvent:)];
-        [self.pusher connect];
+        [self subscribeToPusher];
+        [self getPossibleNumberOfPlayers];
+        [self insertPossibleNumberOfPlayersButtons];
     } else {
-//        send to login screen if not logged in
-        UINavigationController *navigationLogInController = [self.storyboard instantiateViewControllerWithIdentifier:NAVIGATION_LOGIN_STORYBOARD_ID];
-        [self presentViewController:navigationLogInController animated:YES completion:nil];
+        [self askForLogIn];
     }
+}
+
+- (void)subscribeToPusher {
+    self.pusher = [PTPusher pusherWithKey:GFHPusherKey delegate:nil encrypted:YES];
+    PTPusherChannel *channel = [self.pusher subscribeToChannelNamed:[NSString stringWithFormat:@"waiting_for_players_channel_%@", [GFHDatabase sharedDatabase].user.externalId]];
+    [channel bindToEventNamed:@"send_to_game_event" target:self action:@selector(handlePusherEvent:)];
+    [self.pusher connect];
 }
 
 - (void)handlePusherEvent:(PTPusherEvent *) event {
@@ -58,8 +53,43 @@ NSString * const GFHPusherKey = @"39cc3ae7664f69e97e12";
     [self presentViewController:alert animated:YES completion:nil];
 }
 
+- (void)getPossibleNumberOfPlayers {
+    [[GFHRepository sharedRepository] getNumberOfPlayersWithSuccess:^(NSArray *numberOfPlayers){
+        self.numberOfPlayers = numberOfPlayers;
+    } failure:^(NSString *errorMessage){
+        [self showAlert:@"Getting number of players failed" withAlertMessage:errorMessage];
+    }];
+}
+
+- (void)insertPossibleNumberOfPlayersButtons {
+    //    // insert buttons for each numberOfPlayers
+    //    for (NSNumber *possibleNumberOfPlayers in _numberOfPlayers) {
+    //        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    //        button.tag = [possibleNumberOfPlayers integerValue];
+    //        [button addTarget:self
+    //                   action:@selector(buttonPressed:)
+    //         forControlEvents:UIControlEventTouchUpInside];
+    //        [button setTitle:@"2" forState:UIControlStateNormal];
+    //        button.frame = CGRectMake(80.0, 210.0, 160.0, 40.0);
+    //        [self.view addSubview:button];
+    //    }
+    //
+}
+
+- (void)buttonPressed:(id)sender {
+    //    get button.tag and then do something with it (set numberOfPlayers)
+    UIButton *clicked = (UIButton *)sender;
+    self.chosenNumberOfPlayers = clicked.tag;
+    //    submit to server match/create
+    //    insert code here...
+}
+
+- (void)askForLogIn {
+    UINavigationController *navigationLogInController = [self.storyboard instantiateViewControllerWithIdentifier:NAVIGATION_LOGIN_STORYBOARD_ID];
+    [self presentViewController:navigationLogInController animated:YES completion:nil];
+}
+
 /*
-#pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -68,4 +98,16 @@ NSString * const GFHPusherKey = @"39cc3ae7664f69e97e12";
 }
 */
 
+- (void)showAlert:(NSString *)alertText withAlertMessage:(NSString *)alertMessage {
+    NSLog(@"%@",alertText);
+    NSLog(@"%@",alertMessage);
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:alertText
+                                                                   message:alertMessage
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK"
+                                                            style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * action) {}];
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
 @end

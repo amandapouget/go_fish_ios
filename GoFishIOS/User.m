@@ -9,7 +9,7 @@
 #import "User.h"
 
 NSString * const GFHUserEmailKey = @"email";
-NSString * const GFHUserTokenKey = @"token";
+NSString * const GFHUserTokenKey = @"authentication_token";
 NSString * const GFHUserExternalIdKey = @"id";
 
 @implementation User
@@ -17,7 +17,7 @@ NSString * const GFHUserExternalIdKey = @"id";
 + (instancetype)newWithAttributes:(NSDictionary *)userInfo inDatabase:(GFHDatabase *)database {
     User *user = [User new];
     user.email = userInfo[GFHUserEmailKey];
-    user.token = userInfo[GFHUserTokenKey];
+    user.authentication_token = userInfo[GFHUserTokenKey];
     user.externalId = userInfo[GFHUserExternalIdKey];
     database.user = user;
     return user;

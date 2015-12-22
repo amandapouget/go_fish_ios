@@ -8,8 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface GFHMockServer : NSObject
-+ (void)startMocking;
-+ (void)mockAuthenticationResponse;
-+ (void)endMocking;
+@interface GFHMockServer: NSObject
+
++ (GFHMockServer *)sharedHelper;
+
+- (void)mockAuthenticationResponse;
+- (void)resetMocks;
+
 @end

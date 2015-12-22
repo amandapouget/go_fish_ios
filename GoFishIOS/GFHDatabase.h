@@ -3,7 +3,7 @@
 //  GoFishIOS
 //
 //  Created by Amanda Simon on 12/14/15.
-//  Copyright © 2015 RoleModel Software. All rights reserved.
+//  Copyright © 2015 RoleModel Software. All rihts reserved.
 //
 
 #import <Foundation/Foundation.h>

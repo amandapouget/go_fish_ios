@@ -36,8 +36,25 @@ static NSString * const INVALID_LOGIN_ERROR = @"invalid email or password";
     return repository;
 }
 
+- (void)getNumberOfPlayersWithSuccess:(EmptyBlock)success failure:(EmptyBlock)failure {
+    [self.requestSerializer setValue:[NSString stringWithFormat:@"Token token=\"%@\"", self.database.user.authentication_token] forHTTPHeaderField:@"Authorization"];
+    [self GET:@"/api/matches/new" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
+        if (responseObject) {
+            NSLog(@"I GOT THE NUMBER OF PLAYERS!!");
+        }
+        if (success) {
+            success(responseObject[@"player_range"]);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSDictionary *failureError = [self serializeFailure:error];
+        if (failure) {
+            failure(failureError[@"error"]);
+        }
+    }];
+}
+
 - (void)loadMatchPerspectiveWithSuccess:(EmptyBlock)success failure:(EmptyBlock)failure {
-    [self GET:@"/simulate_start" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nonnull responseObject) {
+    [self GET:@"/simulate_start" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
         if (responseObject) {
             [MatchPerspective newWithAttributes:responseObject inDatabase:self.database];
         }
@@ -82,6 +99,6 @@ static NSString * const INVALID_LOGIN_ERROR = @"invalid email or password";
 }
 
 - (BOOL)loggedIn {
-    return self.database.user != nil;
+    return self.database.user.authentication_token != nil;
 }
 @end

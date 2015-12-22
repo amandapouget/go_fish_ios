@@ -30,8 +30,19 @@
 }
 
 - (void)tearDown {
-    [GFHMockServer endMocking];
+    [[GFHMockServer sharedHelper] resetMocks];
     [super tearDown];
+}
+
+- (void)testGetNumberOfPlayersWithSuccess {
+    [self logIn];
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Get Number of Players"];
+    [self.repository getNumberOfPlayersWithSuccess:^(NSArray *playerRange){
+            XCTAssert(playerRange !=nil);
+            [expectation fulfill];
+        } failure:nil
+    ];
+    [self waitForExpectationsWithTimeout:4.0 handler:nil];
 }
 
 - (void)testLoadMatchPerspective {
@@ -45,27 +56,40 @@
 
 // good login information (user does exist)
 - (void)testLogInToServerWithGoodInfo {
+    [[GFHMockServer sharedHelper]mockAuthenticationResponse];
     XCTestExpectation *expectation = [self expectationWithDescription:@"Login with Good User Info"];
     [self.repository loginWithSuccess:^{
-        XCTAssert(self.repository.database.user != nil);
+        XCTAssert(self.repository.database.user.authentication_token != nil);
         [expectation fulfill];
     } failure:nil withEmail:@"mandysimon88@gmail.com" withPassword:@"rose0212"];
     [self waitForExpectationsWithTimeout:4.0 handler:nil];
+    XCTAssert(self.repository.database.user.authentication_token != nil);
 }
 
 // bad login information (user does not exist)
 - (void) testLogInToServerWithBadInfo {
+    [[GFHMockServer sharedHelper]mockAuthenticationResponse];
     XCTestExpectation *expectation = [self expectationWithDescription:@"Login with Bad User Info"];
     [self.repository loginWithSuccess:nil failure:^(NSString *errorMessage) {
-        XCTAssert(self.repository.database.user == nil);
         [expectation fulfill];
     } withEmail:@"fake" withPassword:@"fake"];
     [self waitForExpectationsWithTimeout:4.0 handler:nil];
+    XCTAssert(self.repository.database.user == nil);
 }
 
 - (void)testLoggedIn {
     XCTAssertFalse([self.repository loggedIn]);
     self.repository.database.user = [User new];
+    self.repository.database.user.authentication_token = @"valid_token";
     XCTAssertTrue([self.repository loggedIn]);
+}
+
+- (void)logIn {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Login with Good User Info"];
+    [self.repository loginWithSuccess:^{
+        [expectation fulfill];
+    }failure:nil withEmail:@"mandysimon88@gmail.com" withPassword:@"rose0212"];
+    [self waitForExpectationsWithTimeout:4.0 handler:nil];
+    XCTAssert(self.repository.database.user.authentication_token != nil);
 }
 @end
