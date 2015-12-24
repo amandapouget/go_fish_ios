@@ -16,5 +16,5 @@
 @property (nonatomic, strong) User *user;
 
 + (instancetype)sharedDatabase;
-
+- (void)reset;
 @end

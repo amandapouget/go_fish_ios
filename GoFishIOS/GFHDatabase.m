@@ -20,4 +20,9 @@ static GFHDatabase *_sharedDatabase;
     return _sharedDatabase;
 }
 
+-(void)reset {
+    self.matchPerspective = nil;
+    self.user = nil;
+}
+
 @end

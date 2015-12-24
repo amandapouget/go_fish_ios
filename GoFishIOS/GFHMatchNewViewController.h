@@ -11,4 +11,8 @@
 extern NSString * const GFHPusherKey;
 @interface GFHMatchNewViewController : UIViewController
 
+@property BOOL subscribed;
+@property NSArray *numberOfPlayers;
+- (void)subscribeToPusher;
+- (void)getPossibleNumberOfPlayers;
 @end

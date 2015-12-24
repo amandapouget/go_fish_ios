@@ -7,17 +7,12 @@
 //
 
 #import "GFHRepository.h"
-#import "GFHDatabase.h"
 #import "MatchPerspective.h"
 #import "User.h"
 
 static GFHRepository *_sharedRepository = nil;
 static NSString * const BASE_URL = @"http://localhost:3000";
 static NSString * const INVALID_LOGIN_ERROR = @"invalid email or password";
-
-@interface GFHRepository()
-@property (nonatomic, strong) GFHDatabase *database;
-@end
 
 @implementation GFHRepository
 + (instancetype)sharedRepository {

@@ -18,7 +18,7 @@
 
 @implementation GFHLogInViewController
 - (IBAction)logIn:(id)sender {
-    // Send to repository to communicate with server and save resulting user
+    // Ask repository to communicate with server and save resulting user
     [[GFHRepository sharedRepository] loginWithSuccess:^{
         if ([[GFHRepository sharedRepository] loggedIn]) {
             printf("LOGGED IN!");
@@ -34,16 +34,6 @@
         [self presentViewController:alert animated:YES completion:nil];
         
     } withEmail:self.emailField.text withPassword:self.passwordField.text];
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

@@ -8,49 +8,42 @@
 
 #import <XCTest/XCTest.h>
 #import "GFHMockServer.h"
-#import "GFHRepository.h"
-#import "GFHDatabase.h"
-#import "User.h"
-
-@interface GFHRepository(UnitTests)
-@property (nonatomic, strong) GFHDatabase *database;
-@end
+#import "TestHelper.h"
 
 @interface RepositoryTests : XCTestCase
-@property (nonatomic, strong) GFHRepository *repository;
-@property (nonatomic, strong) NSDictionary *responseObject;
+@property (nonatomic, strong) TestHelper *testHelper;
 @end
 
 @implementation RepositoryTests
 
 - (void)setUp {
     [super setUp];
-    self.repository = [GFHRepository new];
-    self.repository.database = [GFHDatabase new];
+    self.testHelper = [TestHelper newWithRepositoryAndDatabase];
 }
 
 - (void)tearDown {
     [[GFHMockServer sharedHelper] resetMocks];
+    [self.testHelper.repository.database reset];
     [super tearDown];
 }
 
 - (void)testGetNumberOfPlayersWithSuccess {
-    [self logIn];
+    [self.testHelper logIn];
     XCTestExpectation *expectation = [self expectationWithDescription:@"Get Number of Players"];
-    [self.repository getNumberOfPlayersWithSuccess:^(NSArray *playerRange){
-            XCTAssert(playerRange !=nil);
-            [expectation fulfill];
-        } failure:nil
-    ];
+    [self.testHelper.repository getNumberOfPlayersWithSuccess:^(NSArray *playerRange){
+        XCTAssert(playerRange !=nil);
+        [expectation fulfill];
+    } failure:nil
+     ];
     [self waitForExpectationsWithTimeout:4.0 handler:nil];
 }
 
 - (void)testLoadMatchPerspective {
-    [self mockLogIn];
+    [self.testHelper mockLogIn];
     [[GFHMockServer sharedHelper]mockLoadMatchPerspectiveResponse];
     XCTestExpectation *expectation = [self expectationWithDescription:@"Load MatchPerspective"];
-    [self.repository loadMatchPerspectiveWithSuccess:^{
-        XCTAssert(self.repository.database.matchPerspective != nil);
+    [self.testHelper.repository loadMatchPerspectiveWithSuccess:^{
+        XCTAssert(self.testHelper.repository.database.matchPerspective != nil);
         [expectation fulfill];
     } failure:nil withMatchExternalId:@1];
     [self waitForExpectationsWithTimeout:4.0 handler:nil];
@@ -59,43 +52,28 @@
 - (void)testLogInToServerWithGoodInfo {
     [[GFHMockServer sharedHelper]mockAuthenticationResponse];
     XCTestExpectation *expectation = [self expectationWithDescription:@"Login with Good User Info"];
-    [self.repository loginWithSuccess:^{
-        XCTAssert(self.repository.database.user.authentication_token != nil);
+    [self.testHelper.repository loginWithSuccess:^{
+        XCTAssert(self.testHelper.repository.database.user.authentication_token != nil);
         [expectation fulfill];
     } failure:nil withEmail:@"valid_email" withPassword:@"valid_password"];
     [self waitForExpectationsWithTimeout:4.0 handler:nil];
-    XCTAssert(self.repository.database.user.authentication_token != nil);
+    XCTAssert(self.testHelper.repository.database.user.authentication_token != nil);
 }
 
 - (void) testLogInToServerWithBadInfo {
     [[GFHMockServer sharedHelper]mockAuthenticationResponse];
     XCTestExpectation *expectation = [self expectationWithDescription:@"Login with Bad User Info"];
-    [self.repository loginWithSuccess:nil failure:^(NSString *errorMessage) {
+    [self.testHelper.repository loginWithSuccess:nil failure:^(NSString *errorMessage) {
         [expectation fulfill];
     } withEmail:@"fake" withPassword:@"fake"];
     [self waitForExpectationsWithTimeout:4.0 handler:nil];
-    XCTAssert(self.repository.database.user == nil);
+    XCTAssert(self.testHelper.repository.database.user == nil);
 }
 
 - (void)testLoggedIn {
-    XCTAssertFalse([self.repository loggedIn]);
-    self.repository.database.user = [User new];
-    self.repository.database.user.authentication_token = @"valid_token";
-    XCTAssertTrue([self.repository loggedIn]);
-}
-
-- (void)logIn {
-    XCTestExpectation *expectation = [self expectationWithDescription:@"Login with Good User Info"];
-    [self.repository loginWithSuccess:^{
-        [expectation fulfill];
-    }failure:nil withEmail:@"mandysimon88@gmail.com" withPassword:@"rose0212"];
-    [self waitForExpectationsWithTimeout:4.0 handler:nil];
-}
-
-- (void)mockLogIn {
-    self.repository.database.user = [User new];
-    self.repository.database.user.authentication_token = @"valid_token";
-    self.repository.database.user.email = @"valid_email";
-    self.repository.database.user.externalId = @"valid_id";
+    XCTAssertFalse([self.testHelper.repository loggedIn]);
+    self.testHelper.repository.database.user = [User new];
+    self.testHelper.repository.database.user.authentication_token = @"valid_token";
+    XCTAssertTrue([self.testHelper.repository loggedIn]);
 }
 @end

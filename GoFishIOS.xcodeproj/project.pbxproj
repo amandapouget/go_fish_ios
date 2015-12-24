@@ -44,6 +44,8 @@
 		0AD4C1BA1C24C09F00385FF4 /* GFHMockServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4C1B91C24C09F00385FF4 /* GFHMockServer.m */; };
 		0AE827DE1C28729D00261231 /* GFHMatchNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE827DD1C28729D00261231 /* GFHMatchNewViewController.m */; };
 		0AE827E01C28A15700261231 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE827DF1C28A15700261231 /* OHHTTPStubs.framework */; };
+		0AFBC99A1C2B294A00CDB66B /* MatchNewViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFBC9991C2B294A00CDB66B /* MatchNewViewControllerTests.m */; };
+		0AFBC99D1C2B301600CDB66B /* TestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFBC99C1C2B301600CDB66B /* TestHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +135,9 @@
 		0AE827DC1C28729D00261231 /* GFHMatchNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFHMatchNewViewController.h; sourceTree = "<group>"; };
 		0AE827DD1C28729D00261231 /* GFHMatchNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFHMatchNewViewController.m; sourceTree = "<group>"; };
 		0AE827DF1C28A15700261231 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = SOURCE_ROOT; };
+		0AFBC9991C2B294A00CDB66B /* MatchNewViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchNewViewControllerTests.m; sourceTree = "<group>"; };
+		0AFBC99B1C2B301600CDB66B /* TestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestHelper.h; sourceTree = "<group>"; };
+		0AFBC99C1C2B301600CDB66B /* TestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,7 +282,10 @@
 				0AD4C1B81C24C09F00385FF4 /* GFHMockServer.h */,
 				0AD4C1B91C24C09F00385FF4 /* GFHMockServer.m */,
 				0AB1A0681C1F5F87003BA562 /* CardTests.m */,
+				0AFBC9991C2B294A00CDB66B /* MatchNewViewControllerTests.m */,
 				0AB1A0771C1F640C003BA562 /* RepositoryTests.m */,
+				0AFBC99B1C2B301600CDB66B /* TestHelper.h */,
+				0AFBC99C1C2B301600CDB66B /* TestHelper.m */,
 				0AB1A0811C207212003BA562 /* MatchPerspectiveTests.m */,
 				0A045C091C21CFFB00A5006E /* match_json_fixture.json */,
 				0AD4C1B21C2482D800385FF4 /* user_login_valid_json_fixture.json */,
@@ -511,6 +519,8 @@
 				0AB1A0691C1F5F87003BA562 /* CardTests.m in Sources */,
 				0AB1A0821C207212003BA562 /* MatchPerspectiveTests.m in Sources */,
 				0AB1A0791C1F6489003BA562 /* GFHRepository.m in Sources */,
+				0AFBC99A1C2B294A00CDB66B /* MatchNewViewControllerTests.m in Sources */,
+				0AFBC99D1C2B301600CDB66B /* TestHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

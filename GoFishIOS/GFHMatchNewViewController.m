@@ -7,23 +7,22 @@
 //
 
 #import "GFHMatchNewViewController.h"
-#import "PTPusher.h"
-#import "PTPusherChannel.h"
-#import "PTPusherEvent.h"
 #import "GFHRepository.h"
 #import "GFHDatabase.h"
 #import "User.h"
-
-
+#import "PTPusher.h"
+#import "PTPusherChannel.h"
+#import "PTPusherEvent.h"
 
 static NSString * const NAVIGATION_LOGIN_STORYBOARD_ID = @"GFHNavigationLogIn";
 NSString * const GFHPusherKey = @"39cc3ae7664f69e97e12";
 
 
-@interface GFHMatchNewViewController ()
-@property PTPusher *pusher;
-@property NSArray *numberOfPlayers;
+@interface GFHMatchNewViewController ()<PTPusherDelegate> {
+    PTPusher *_pusher;
+}
 @property NSInteger chosenNumberOfPlayers;
+@property (nonatomic, weak) id<PTPusherDelegate> delegate;
 @end
 
 @implementation GFHMatchNewViewController
@@ -40,10 +39,14 @@ NSString * const GFHPusherKey = @"39cc3ae7664f69e97e12";
 }
 
 - (void)subscribeToPusher {
-    self.pusher = [PTPusher pusherWithKey:GFHPusherKey delegate:nil encrypted:YES];
-    PTPusherChannel *channel = [self.pusher subscribeToChannelNamed:[NSString stringWithFormat:@"waiting_for_players_channel_%@", [GFHDatabase sharedDatabase].user.externalId]];
+    _pusher = [PTPusher pusherWithKey:GFHPusherKey delegate:self encrypted:YES];
+    PTPusherChannel *channel = [_pusher subscribeToChannelNamed:[NSString stringWithFormat:@"waiting_for_players_channel_%@", [GFHDatabase sharedDatabase].user.externalId]];
     [channel bindToEventNamed:@"send_to_game_event" target:self action:@selector(handlePusherEvent:)];
-    [self.pusher connect];
+    [_pusher connect];
+}
+
+- (void)pusher:(PTPusher *)pusher didSubscribeToChannel:(PTPusherChannel *)channel {
+    [self setSubscribed:YES];
 }
 
 - (void)handlePusherEvent:(PTPusherEvent *) event {
@@ -62,18 +65,18 @@ NSString * const GFHPusherKey = @"39cc3ae7664f69e97e12";
 }
 
 - (void)insertPossibleNumberOfPlayersButtons {
-    //    // insert buttons for each numberOfPlayers
-    //    for (NSNumber *possibleNumberOfPlayers in _numberOfPlayers) {
-    //        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    //        button.tag = [possibleNumberOfPlayers integerValue];
-    //        [button addTarget:self
-    //                   action:@selector(buttonPressed:)
-    //         forControlEvents:UIControlEventTouchUpInside];
-    //        [button setTitle:@"2" forState:UIControlStateNormal];
-    //        button.frame = CGRectMake(80.0, 210.0, 160.0, 40.0);
-    //        [self.view addSubview:button];
-    //    }
-    //
+        // insert buttons for each numberOfPlayers
+        for (NSNumber *possibleNumberOfPlayers in _numberOfPlayers) {
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+            button.tag = [possibleNumberOfPlayers integerValue];
+            [button addTarget:self
+                       action:@selector(buttonPressed:)
+             forControlEvents:UIControlEventTouchUpInside];
+            [button setTitle:@"2" forState:UIControlStateNormal];
+            button.frame = CGRectMake(80.0, 210.0, 160.0, 40.0);
+            [self.view addSubview:button];
+        }
+    
 }
 
 - (void)buttonPressed:(id)sender {
