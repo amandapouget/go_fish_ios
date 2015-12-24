@@ -46,6 +46,7 @@
 		0AE827E01C28A15700261231 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE827DF1C28A15700261231 /* OHHTTPStubs.framework */; };
 		0AFBC99A1C2B294A00CDB66B /* MatchNewViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFBC9991C2B294A00CDB66B /* MatchNewViewControllerTests.m */; };
 		0AFBC99D1C2B301600CDB66B /* TestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFBC99C1C2B301600CDB66B /* TestHelper.m */; };
+		0AFBC9A41C2C64C200CDB66B /* CALayer+RuntimeAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFBC9A31C2C64C200CDB66B /* CALayer+RuntimeAttribute.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +139,8 @@
 		0AFBC9991C2B294A00CDB66B /* MatchNewViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchNewViewControllerTests.m; sourceTree = "<group>"; };
 		0AFBC99B1C2B301600CDB66B /* TestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestHelper.h; sourceTree = "<group>"; };
 		0AFBC99C1C2B301600CDB66B /* TestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHelper.m; sourceTree = "<group>"; };
+		0AFBC9A21C2C64C200CDB66B /* CALayer+RuntimeAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+RuntimeAttribute.h"; sourceTree = "<group>"; };
+		0AFBC9A31C2C64C200CDB66B /* CALayer+RuntimeAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+RuntimeAttribute.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -315,6 +318,8 @@
 				0AB1A0741C1F63A9003BA562 /* GFHDatabase.h */,
 				0AB1A0751C1F63A9003BA562 /* GFHDatabase.m */,
 				0AB1A07B1C1F6D43003BA562 /* Player.h */,
+				0AFBC9A21C2C64C200CDB66B /* CALayer+RuntimeAttribute.h */,
+				0AFBC9A31C2C64C200CDB66B /* CALayer+RuntimeAttribute.m */,
 				0AB1A07C1C1F6D43003BA562 /* Player.m */,
 				0AB1A07E1C207144003BA562 /* MatchPerspective.h */,
 				0AB1A07F1C207144003BA562 /* MatchPerspective.m */,
@@ -502,6 +507,7 @@
 				0AB1A0761C1F63A9003BA562 /* GFHDatabase.m in Sources */,
 				0AD4C1B11C23165C00385FF4 /* GFHLogInViewController.m in Sources */,
 				0A045C291C21DAC400A5006E /* GFHMatchViewController.m in Sources */,
+				0AFBC9A41C2C64C200CDB66B /* CALayer+RuntimeAttribute.m in Sources */,
 				0AB1A07D1C1F6D43003BA562 /* Player.m in Sources */,
 				0AB1A06D1C1F5FF1003BA562 /* Card.m in Sources */,
 			);

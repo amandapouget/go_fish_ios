@@ -23,6 +23,7 @@ NSString * const GFHPusherKey = @"39cc3ae7664f69e97e12";
 }
 @property NSInteger chosenNumberOfPlayers;
 @property (nonatomic, weak) id<PTPusherDelegate> delegate;
+@property (weak, nonatomic) IBOutlet UILabel *speech;
 @end
 
 @implementation GFHMatchNewViewController
@@ -30,6 +31,7 @@ NSString * const GFHPusherKey = @"39cc3ae7664f69e97e12";
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     if ([[GFHRepository sharedRepository] loggedIn]) {
+        [self.speech setText:@"Choose your pond, Fishmaster!"];
         [self subscribeToPusher];
         [self getPossibleNumberOfPlayers];
         [self insertPossibleNumberOfPlayersButtons];

@@ -36,7 +36,7 @@
 - (void)testLogInButtonWithGoodInfo {
     [self fillInLogInInfoWithEmail:@"mandysimon88@gmail.com" withPassword:@"rose0212"];
 //    [self.app.buttons[@"Log In"] tap];
-    XCTAssert(self.app.staticTexts[@"Log In"].exists);
+    XCTAssert(self.app.staticTexts[@"Log In"].exists);te
 }
 
 // bad login information (user does not exist)
