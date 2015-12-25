@@ -22,7 +22,7 @@
 		0AB1A0401C1F5F4D003BA562 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AB1A03E1C1F5F4D003BA562 /* Main.storyboard */; };
 		0AB1A0421C1F5F4D003BA562 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AB1A0411C1F5F4D003BA562 /* Assets.xcassets */; };
 		0AB1A0451C1F5F4D003BA562 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AB1A0431C1F5F4D003BA562 /* LaunchScreen.storyboard */; };
-		0AB1A05B1C1F5F4D003BA562 /* GoFishIOSUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB1A05A1C1F5F4D003BA562 /* GoFishIOSUITests.m */; };
+		0AB1A05B1C1F5F4D003BA562 /* LogInUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB1A05A1C1F5F4D003BA562 /* LogInUITests.m */; };
 		0AB1A0691C1F5F87003BA562 /* CardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB1A0681C1F5F87003BA562 /* CardTests.m */; };
 		0AB1A06D1C1F5FF1003BA562 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB1A06C1C1F5FF1003BA562 /* Card.m */; };
 		0AB1A0701C1F60FC003BA562 /* GFHRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB1A06F1C1F60FC003BA562 /* GFHRepository.m */; };
@@ -47,6 +47,11 @@
 		0AFBC99A1C2B294A00CDB66B /* MatchNewViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFBC9991C2B294A00CDB66B /* MatchNewViewControllerTests.m */; };
 		0AFBC99D1C2B301600CDB66B /* TestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFBC99C1C2B301600CDB66B /* TestHelper.m */; };
 		0AFBC9A41C2C64C200CDB66B /* CALayer+RuntimeAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFBC9A31C2C64C200CDB66B /* CALayer+RuntimeAttribute.m */; };
+		0AFBC9A71C2C9C1C00CDB66B /* MatchNewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFBC9A61C2C9C1C00CDB66B /* MatchNewUITests.m */; };
+		0AFBC9AD1C2CA2A000CDB66B /* UITestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFBC9AC1C2CA2A000CDB66B /* UITestHelper.m */; };
+		0AFBC9AF1C2DBDBD00CDB66B /* ExampleProgrammaticButtonMaker.m in Resources */ = {isa = PBXBuildFile; fileRef = 0AFBC9AE1C2DBDBD00CDB66B /* ExampleProgrammaticButtonMaker.m */; };
+		0AFBC9D81C2DC64C00CDB66B /* GFHNumberOfPlayersButtonsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFBC9D71C2DC64C00CDB66B /* GFHNumberOfPlayersButtonsViewController.m */; };
+		0AFBC9DB1C2DCB2000CDB66B /* GFHNumberOfPlayersButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFBC9DA1C2DCB2000CDB66B /* GFHNumberOfPlayersButtonCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,7 +111,7 @@
 		0AB1A04B1C1F5F4D003BA562 /* GoFishIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoFishIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AB1A0511C1F5F4D003BA562 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AB1A0561C1F5F4D003BA562 /* GoFishIOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoFishIOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0AB1A05A1C1F5F4D003BA562 /* GoFishIOSUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoFishIOSUITests.m; sourceTree = "<group>"; };
+		0AB1A05A1C1F5F4D003BA562 /* LogInUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LogInUITests.m; sourceTree = "<group>"; };
 		0AB1A05C1C1F5F4D003BA562 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AB1A0681C1F5F87003BA562 /* CardTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardTests.m; sourceTree = "<group>"; };
 		0AB1A06B1C1F5FF1003BA562 /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
@@ -141,6 +146,14 @@
 		0AFBC99C1C2B301600CDB66B /* TestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHelper.m; sourceTree = "<group>"; };
 		0AFBC9A21C2C64C200CDB66B /* CALayer+RuntimeAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+RuntimeAttribute.h"; sourceTree = "<group>"; };
 		0AFBC9A31C2C64C200CDB66B /* CALayer+RuntimeAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+RuntimeAttribute.m"; sourceTree = "<group>"; };
+		0AFBC9A61C2C9C1C00CDB66B /* MatchNewUITests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchNewUITests.m; sourceTree = "<group>"; };
+		0AFBC9AB1C2CA2A000CDB66B /* UITestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITestHelper.h; sourceTree = "<group>"; };
+		0AFBC9AC1C2CA2A000CDB66B /* UITestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITestHelper.m; sourceTree = "<group>"; };
+		0AFBC9AE1C2DBDBD00CDB66B /* ExampleProgrammaticButtonMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleProgrammaticButtonMaker.m; sourceTree = "<group>"; };
+		0AFBC9D61C2DC64C00CDB66B /* GFHNumberOfPlayersButtonsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFHNumberOfPlayersButtonsViewController.h; sourceTree = "<group>"; };
+		0AFBC9D71C2DC64C00CDB66B /* GFHNumberOfPlayersButtonsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFHNumberOfPlayersButtonsViewController.m; sourceTree = "<group>"; };
+		0AFBC9D91C2DCB2000CDB66B /* GFHNumberOfPlayersButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFHNumberOfPlayersButtonCell.h; sourceTree = "<group>"; };
+		0AFBC9DA1C2DCB2000CDB66B /* GFHNumberOfPlayersButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFHNumberOfPlayersButtonCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +222,9 @@
 				0AD4C1AF1C23165C00385FF4 /* GFHLogInViewController.h */,
 				0AD4C1B01C23165C00385FF4 /* GFHLogInViewController.m */,
 				0AE827DC1C28729D00261231 /* GFHMatchNewViewController.h */,
+				0AFBC9D61C2DC64C00CDB66B /* GFHNumberOfPlayersButtonsViewController.h */,
+				0AFBC9D71C2DC64C00CDB66B /* GFHNumberOfPlayersButtonsViewController.m */,
+				0AFBC9AE1C2DBDBD00CDB66B /* ExampleProgrammaticButtonMaker.m */,
 				0AE827DD1C28729D00261231 /* GFHMatchNewViewController.m */,
 			);
 			name = Controllers;
@@ -219,6 +235,8 @@
 			children = (
 				0A137F031C21FE3000D10B65 /* GFHCardCollectionCell.h */,
 				0A137F041C21FE3000D10B65 /* GFHCardCollectionCell.m */,
+				0AFBC9D91C2DCB2000CDB66B /* GFHNumberOfPlayersButtonCell.h */,
+				0AFBC9DA1C2DCB2000CDB66B /* GFHNumberOfPlayersButtonCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -302,7 +320,10 @@
 		0AB1A0591C1F5F4D003BA562 /* GoFishIOSUITests */ = {
 			isa = PBXGroup;
 			children = (
-				0AB1A05A1C1F5F4D003BA562 /* GoFishIOSUITests.m */,
+				0AB1A05A1C1F5F4D003BA562 /* LogInUITests.m */,
+				0AFBC9AB1C2CA2A000CDB66B /* UITestHelper.h */,
+				0AFBC9AC1C2CA2A000CDB66B /* UITestHelper.m */,
+				0AFBC9A61C2C9C1C00CDB66B /* MatchNewUITests.m */,
 				0AB1A05C1C1F5F4D003BA562 /* Info.plist */,
 			);
 			path = GoFishIOSUITests;
@@ -434,6 +455,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AFBC9AF1C2DBDBD00CDB66B /* ExampleProgrammaticButtonMaker.m in Resources */,
 				0AB1A0451C1F5F4D003BA562 /* LaunchScreen.storyboard in Resources */,
 				0AB1A0421C1F5F4D003BA562 /* Assets.xcassets in Resources */,
 				0AB1A0401C1F5F4D003BA562 /* Main.storyboard in Resources */,
@@ -500,9 +522,11 @@
 				0AB1A0371C1F5F4D003BA562 /* main.m in Sources */,
 				0A045C2D1C21EE0700A5006E /* GFHPlayerViewController.m in Sources */,
 				0AB1A0701C1F60FC003BA562 /* GFHRepository.m in Sources */,
+				0AFBC9D81C2DC64C00CDB66B /* GFHNumberOfPlayersButtonsViewController.m in Sources */,
 				0AB1A0861C2095FD003BA562 /* MatchPerspective.m in Sources */,
 				0AE827DE1C28729D00261231 /* GFHMatchNewViewController.m in Sources */,
 				0A137F051C21FE3000D10B65 /* GFHCardCollectionCell.m in Sources */,
+				0AFBC9DB1C2DCB2000CDB66B /* GFHNumberOfPlayersButtonCell.m in Sources */,
 				0AD4C1AA1C23105700385FF4 /* User.m in Sources */,
 				0AB1A0761C1F63A9003BA562 /* GFHDatabase.m in Sources */,
 				0AD4C1B11C23165C00385FF4 /* GFHLogInViewController.m in Sources */,
@@ -534,7 +558,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0AB1A05B1C1F5F4D003BA562 /* GoFishIOSUITests.m in Sources */,
+				0AFBC9A71C2C9C1C00CDB66B /* MatchNewUITests.m in Sources */,
+				0AFBC9AD1C2CA2A000CDB66B /* UITestHelper.m in Sources */,
+				0AB1A05B1C1F5F4D003BA562 /* LogInUITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

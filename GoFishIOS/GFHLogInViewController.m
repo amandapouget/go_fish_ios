@@ -21,11 +21,10 @@
     // Ask repository to communicate with server and save resulting user
     [[GFHRepository sharedRepository] loginWithSuccess:^{
         if ([[GFHRepository sharedRepository] loggedIn]) {
-            printf("LOGGED IN!");
             [self dismissViewControllerAnimated:YES completion:nil];
         }
     } failure:^(NSString *errorMessage){
-        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Login Failure"
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Login Failed"
                                                                        message:errorMessage
                                                                 preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
