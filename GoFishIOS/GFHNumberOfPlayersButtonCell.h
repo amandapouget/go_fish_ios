@@ -9,7 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface GFHNumberOfPlayersButtonCell : UICollectionViewCell
-
-@property (nonatomic, strong) UIButton *button;
-
+@property (weak, nonatomic) IBOutlet UIButton *button;
 @end

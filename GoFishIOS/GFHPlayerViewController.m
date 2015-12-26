@@ -10,7 +10,7 @@
 #import "GFHCardCollectionCell.h"
 #import "Player.h"
 
-static NSString * const CELL_ID = @"cardCell";
+static NSString * const CELL_ID = @"CardCell";
 
 @interface GFHPlayerViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *cardCollectionView;
@@ -36,11 +36,6 @@ static NSString * const CELL_ID = @"cardCell";
     [self.cardCollectionView reloadData];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 // look at the delegate and datasource protocols for collectionviews to find out what callbacks (like below) that you need to handle the CLICKING people will do on cards
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -52,7 +47,7 @@ static NSString * const CELL_ID = @"cardCell";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    GFHCardCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier: CELL_ID forIndexPath:indexPath];
+    GFHCardCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CELL_ID forIndexPath:indexPath];
     cell.card = self.player.cards[indexPath.row];
     return cell;
 }

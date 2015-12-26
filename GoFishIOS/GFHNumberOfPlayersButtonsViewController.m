@@ -5,11 +5,15 @@
 //  Created by Amanda Simon on 12/25/15.
 //  Copyright © 2015 RoleModel Software. All rights reserved.
 //
-
+//
 #import "GFHNumberOfPlayersButtonsViewController.h"
+#import "GFHNumberOfPlayersButtonCell.h"
+#import "KTCenterFlowLayout.h"
+
+static NSString * const CELL_ID = @"NumberOfPlayersButtonCell";
 
 @interface GFHNumberOfPlayersButtonsViewController ()
-
+@property (weak, nonatomic) IBOutlet UICollectionView *numberOfPlayersCollectionView;
 @end
 
 @implementation GFHNumberOfPlayersButtonsViewController
@@ -18,49 +22,25 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Register cell classes
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
-    
-    // Do any additional setup after loading the view.
+    KTCenterFlowLayout *layout = [KTCenterFlowLayout new];
+    layout.minimumInteritemSpacing = 10.f;
+    layout.minimumLineSpacing = 10.f;
+    self.numberOfPlayersCollectionView.collectionViewLayout = layout;
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-#pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of items
-    return 0;
+    return [self.numberOfPlayersButtons count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    GFHNumberOfPlayersButtonCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CELL_ID forIndexPath:indexPath];
     
-    // Configure the cell
-    
+    cell.button = self.numberOfPlayersButtons[indexPath.row];
     return cell;
 }
 
