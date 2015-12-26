@@ -18,6 +18,7 @@
 		0A045C2D1C21EE0700A5006E /* GFHPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A045C2C1C21EE0700A5006E /* GFHPlayerViewController.m */; };
 		0A0D02881C2DE03500DF8550 /* KTCenterFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A0D02871C2DE03500DF8550 /* KTCenterFlowLayout.m */; };
 		0A0D028C1C2DEA9600DF8550 /* NumberOfPlayersButtonMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A0D028B1C2DEA9600DF8550 /* NumberOfPlayersButtonMaker.m */; };
+		0A0D028E1C2E1BB300DF8550 /* NumberOfPlayersButtonMakerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A0D028D1C2E1BB300DF8550 /* NumberOfPlayersButtonMakerTests.m */; };
 		0A137F051C21FE3000D10B65 /* GFHCardCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A137F041C21FE3000D10B65 /* GFHCardCollectionCell.m */; };
 		0AB1A0371C1F5F4D003BA562 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB1A0361C1F5F4D003BA562 /* main.m */; };
 		0AB1A03A1C1F5F4D003BA562 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB1A0391C1F5F4D003BA562 /* AppDelegate.m */; };
@@ -51,7 +52,6 @@
 		0AFBC9A41C2C64C200CDB66B /* CALayer+RuntimeAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFBC9A31C2C64C200CDB66B /* CALayer+RuntimeAttribute.m */; };
 		0AFBC9A71C2C9C1C00CDB66B /* MatchNewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFBC9A61C2C9C1C00CDB66B /* MatchNewUITests.m */; };
 		0AFBC9AD1C2CA2A000CDB66B /* UITestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFBC9AC1C2CA2A000CDB66B /* UITestHelper.m */; };
-		0AFBC9AF1C2DBDBD00CDB66B /* ExampleProgrammaticButtonMaker.m in Resources */ = {isa = PBXBuildFile; fileRef = 0AFBC9AE1C2DBDBD00CDB66B /* ExampleProgrammaticButtonMaker.m */; };
 		0AFBC9D81C2DC64C00CDB66B /* GFHNumberOfPlayersButtonsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFBC9D71C2DC64C00CDB66B /* GFHNumberOfPlayersButtonsViewController.m */; };
 		0AFBC9DB1C2DCB2000CDB66B /* GFHNumberOfPlayersButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFBC9DA1C2DCB2000CDB66B /* GFHNumberOfPlayersButtonCell.m */; };
 /* End PBXBuildFile section */
@@ -104,6 +104,7 @@
 		0A0D02871C2DE03500DF8550 /* KTCenterFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTCenterFlowLayout.m; sourceTree = "<group>"; };
 		0A0D028A1C2DEA9600DF8550 /* NumberOfPlayersButtonMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberOfPlayersButtonMaker.h; sourceTree = "<group>"; };
 		0A0D028B1C2DEA9600DF8550 /* NumberOfPlayersButtonMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberOfPlayersButtonMaker.m; sourceTree = "<group>"; };
+		0A0D028D1C2E1BB300DF8550 /* NumberOfPlayersButtonMakerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberOfPlayersButtonMakerTests.m; sourceTree = "<group>"; };
 		0A137F031C21FE3000D10B65 /* GFHCardCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFHCardCollectionCell.h; sourceTree = "<group>"; };
 		0A137F041C21FE3000D10B65 /* GFHCardCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFHCardCollectionCell.m; sourceTree = "<group>"; };
 		0AB1A0321C1F5F4D003BA562 /* GoFishIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoFishIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,7 +156,6 @@
 		0AFBC9A61C2C9C1C00CDB66B /* MatchNewUITests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchNewUITests.m; sourceTree = "<group>"; };
 		0AFBC9AB1C2CA2A000CDB66B /* UITestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITestHelper.h; sourceTree = "<group>"; };
 		0AFBC9AC1C2CA2A000CDB66B /* UITestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITestHelper.m; sourceTree = "<group>"; };
-		0AFBC9AE1C2DBDBD00CDB66B /* ExampleProgrammaticButtonMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleProgrammaticButtonMaker.m; sourceTree = "<group>"; };
 		0AFBC9D61C2DC64C00CDB66B /* GFHNumberOfPlayersButtonsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFHNumberOfPlayersButtonsViewController.h; sourceTree = "<group>"; };
 		0AFBC9D71C2DC64C00CDB66B /* GFHNumberOfPlayersButtonsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFHNumberOfPlayersButtonsViewController.m; sourceTree = "<group>"; };
 		0AFBC9D91C2DCB2000CDB66B /* GFHNumberOfPlayersButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFHNumberOfPlayersButtonCell.h; sourceTree = "<group>"; };
@@ -238,7 +238,6 @@
 		0A0D02891C2DE14600DF8550 /* OutsideCode */ = {
 			isa = PBXGroup;
 			children = (
-				0AFBC9AE1C2DBDBD00CDB66B /* ExampleProgrammaticButtonMaker.m */,
 				0A0D02861C2DE03500DF8550 /* KTCenterFlowLayout.h */,
 				0A0D02871C2DE03500DF8550 /* KTCenterFlowLayout.m */,
 				0AFBC9A21C2C64C200CDB66B /* CALayer+RuntimeAttribute.h */,
@@ -316,20 +315,21 @@
 			isa = PBXGroup;
 			children = (
 				0AB1A0511C1F5F4D003BA562 /* Info.plist */,
-				0AB1A0831C207E5A003BA562 /* PlayerTests.m */,
+				0AB1A0681C1F5F87003BA562 /* CardTests.m */,
+				0AD4C1AD1C23129200385FF4 /* DatabaseTests.m */,
 				0AD4C1B81C24C09F00385FF4 /* GFHMockServer.h */,
 				0AD4C1B91C24C09F00385FF4 /* GFHMockServer.m */,
-				0AB1A0681C1F5F87003BA562 /* CardTests.m */,
 				0AFBC9991C2B294A00CDB66B /* MatchNewViewControllerTests.m */,
+				0AB1A0811C207212003BA562 /* MatchPerspectiveTests.m */,
+				0AB1A0831C207E5A003BA562 /* PlayerTests.m */,
 				0AB1A0771C1F640C003BA562 /* RepositoryTests.m */,
+				0AD4C1AB1C2310B900385FF4 /* UserTests.m */,
+				0A0D028D1C2E1BB300DF8550 /* NumberOfPlayersButtonMakerTests.m */,
 				0AFBC99B1C2B301600CDB66B /* TestHelper.h */,
 				0AFBC99C1C2B301600CDB66B /* TestHelper.m */,
-				0AB1A0811C207212003BA562 /* MatchPerspectiveTests.m */,
 				0A045C091C21CFFB00A5006E /* match_json_fixture.json */,
-				0AD4C1B21C2482D800385FF4 /* user_login_valid_json_fixture.json */,
 				0AD4C1B41C2484B100385FF4 /* user_login_invalid_json_fixture.json */,
-				0AD4C1AB1C2310B900385FF4 /* UserTests.m */,
-				0AD4C1AD1C23129200385FF4 /* DatabaseTests.m */,
+				0AD4C1B21C2482D800385FF4 /* user_login_valid_json_fixture.json */,
 			);
 			path = GoFishIOSTests;
 			sourceTree = "<group>";
@@ -337,11 +337,11 @@
 		0AB1A0591C1F5F4D003BA562 /* GoFishIOSUITests */ = {
 			isa = PBXGroup;
 			children = (
+				0AB1A05C1C1F5F4D003BA562 /* Info.plist */,
 				0AB1A05A1C1F5F4D003BA562 /* LogInUITests.m */,
+				0AFBC9A61C2C9C1C00CDB66B /* MatchNewUITests.m */,
 				0AFBC9AB1C2CA2A000CDB66B /* UITestHelper.h */,
 				0AFBC9AC1C2CA2A000CDB66B /* UITestHelper.m */,
-				0AFBC9A61C2C9C1C00CDB66B /* MatchNewUITests.m */,
-				0AB1A05C1C1F5F4D003BA562 /* Info.plist */,
 			);
 			path = GoFishIOSUITests;
 			sourceTree = "<group>";
@@ -349,19 +349,19 @@
 		0AB1A06A1C1F5FA3003BA562 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				0AB1A06E1C1F60FC003BA562 /* GFHRepository.h */,
-				0AB1A06F1C1F60FC003BA562 /* GFHRepository.m */,
+				0A0D02891C2DE14600DF8550 /* OutsideCode */,
 				0AB1A06B1C1F5FF1003BA562 /* Card.h */,
-				0A0D028A1C2DEA9600DF8550 /* NumberOfPlayersButtonMaker.h */,
-				0A0D028B1C2DEA9600DF8550 /* NumberOfPlayersButtonMaker.m */,
 				0AB1A06C1C1F5FF1003BA562 /* Card.m */,
 				0AB1A0741C1F63A9003BA562 /* GFHDatabase.h */,
 				0AB1A0751C1F63A9003BA562 /* GFHDatabase.m */,
-				0A0D02891C2DE14600DF8550 /* OutsideCode */,
-				0AB1A07B1C1F6D43003BA562 /* Player.h */,
-				0AB1A07C1C1F6D43003BA562 /* Player.m */,
+				0AB1A06E1C1F60FC003BA562 /* GFHRepository.h */,
+				0AB1A06F1C1F60FC003BA562 /* GFHRepository.m */,
 				0AB1A07E1C207144003BA562 /* MatchPerspective.h */,
 				0AB1A07F1C207144003BA562 /* MatchPerspective.m */,
+				0A0D028A1C2DEA9600DF8550 /* NumberOfPlayersButtonMaker.h */,
+				0A0D028B1C2DEA9600DF8550 /* NumberOfPlayersButtonMaker.m */,
+				0AB1A07B1C1F6D43003BA562 /* Player.h */,
+				0AB1A07C1C1F6D43003BA562 /* Player.m */,
 				0AD4C1A81C23105700385FF4 /* User.h */,
 				0AD4C1A91C23105700385FF4 /* User.m */,
 			);
@@ -473,7 +473,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0AFBC9AF1C2DBDBD00CDB66B /* ExampleProgrammaticButtonMaker.m in Resources */,
 				0AB1A0451C1F5F4D003BA562 /* LaunchScreen.storyboard in Resources */,
 				0AB1A0421C1F5F4D003BA562 /* Assets.xcassets in Resources */,
 				0AB1A0401C1F5F4D003BA562 /* Main.storyboard in Resources */,
@@ -563,6 +562,7 @@
 			files = (
 				0AD4C1BA1C24C09F00385FF4 /* GFHMockServer.m in Sources */,
 				0AD4C1AE1C23129200385FF4 /* DatabaseTests.m in Sources */,
+				0A0D028E1C2E1BB300DF8550 /* NumberOfPlayersButtonMakerTests.m in Sources */,
 				0AB1A0841C207E5A003BA562 /* PlayerTests.m in Sources */,
 				0AB1A0781C1F640C003BA562 /* RepositoryTests.m in Sources */,
 				0AD4C1AC1C2310B900385FF4 /* UserTests.m in Sources */,

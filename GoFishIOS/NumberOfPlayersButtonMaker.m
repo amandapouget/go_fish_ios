@@ -34,18 +34,19 @@
 
 - (UIButton *)createButton:(UIButton *)button withValue:(NSNumber *)numberValue {
     [button addTarget:self
-               action:@selector(buttonPressed:)
-     forControlEvents:UIControlEventTouchUpInside];
+               action:@selector(buttonPressed)
+     forControlEvents:UIControlEventValueChanged];
     button.tag = [numberValue integerValue];
     [button setTitle:[numberValue stringValue] forState:UIControlStateNormal];
     return button;
 }
 
-- (void)buttonPressed:(id)sender {
+- (void)buttonPressed {
     //    get button.tag and then do something with it
 //    UIButton *clicked = (UIButton *)sender;
 //    int chosenNumberOfPlayers = clicked.tag;
     //    submit to server match/create
     //    insert code here...
+    NSLog(@"A BUTTON ON THE MATCHNEWVIEWCONTROLLER WAS PUSHED");
 }
 @end

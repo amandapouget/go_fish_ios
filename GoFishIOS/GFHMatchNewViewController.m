@@ -41,20 +41,21 @@ NSString * const GFHPusherKey = @"39cc3ae7664f69e97e12";
         [self.speech setText:@"Choose your pond, Fishmaster!"];
         [self subscribeToPusher];
         [self getPossibleNumberOfPlayers];
-        [self addNumberOfPlayersButtons];
     } else {
         [self askForLogIn];
     }
 }
 
 - (void)addNumberOfPlayersButtons {
-    self.numberOfPlayersButtonsViewController.numberOfPlayersButtons = [[NumberOfPlayersButtonMaker new] makeNumberOfPlayersButtons:self.numberOfPlayers];
+    NSMutableArray *myArray = [[NumberOfPlayersButtonMaker new] makeNumberOfPlayersButtons:self.numberOfPlayers];
+    self.numberOfPlayersButtonsViewController.numberOfPlayersButtons = myArray;
 }
 
 
 - (void)getPossibleNumberOfPlayers {
     [[GFHRepository sharedRepository] getNumberOfPlayersWithSuccess:^(NSArray *numberOfPlayers) {
         self.numberOfPlayers = numberOfPlayers;
+        [self addNumberOfPlayersButtons];
     } failure:^(NSString *errorMessage){
         [self showAlert:@"Getting number of players failed" withAlertMessage:errorMessage];
     }];

@@ -28,10 +28,14 @@ static NSString * const reuseIdentifier = @"Cell";
     self.numberOfPlayersCollectionView.collectionViewLayout = layout;
 }
 
+- (void)setNumberOfPlayersButtons:(NSArray *)numberOfPlayersButtons {
+    _numberOfPlayersButtons = numberOfPlayersButtons;
+    [self.numberOfPlayersCollectionView reloadData];
+}
+
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
-
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return [self.numberOfPlayersButtons count];
