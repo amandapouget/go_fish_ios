@@ -6,10 +6,14 @@
 //  Copyright © 2015 RoleModel Software. All rights reserved.
 //
 //
+
+
 #import <UIKit/UIKit.h>
 
 @interface GFHNumberOfPlayersButtonsViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
-@property (nonatomic, strong) NSArray *numberOfPlayersButtons;
+@property (nonatomic, strong) NSMutableArray *numberOfPlayersButtons;
+
+- (void)makeNumberOfPlayersButtons:(NSArray *)numberOfPlayers;
 
 @end

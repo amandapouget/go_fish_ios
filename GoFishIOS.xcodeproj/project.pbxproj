@@ -17,8 +17,7 @@
 		0A045C291C21DAC400A5006E /* GFHMatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A045C281C21DAC400A5006E /* GFHMatchViewController.m */; };
 		0A045C2D1C21EE0700A5006E /* GFHPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A045C2C1C21EE0700A5006E /* GFHPlayerViewController.m */; };
 		0A0D02881C2DE03500DF8550 /* KTCenterFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A0D02871C2DE03500DF8550 /* KTCenterFlowLayout.m */; };
-		0A0D028C1C2DEA9600DF8550 /* NumberOfPlayersButtonMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A0D028B1C2DEA9600DF8550 /* NumberOfPlayersButtonMaker.m */; };
-		0A0D028E1C2E1BB300DF8550 /* NumberOfPlayersButtonMakerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A0D028D1C2E1BB300DF8550 /* NumberOfPlayersButtonMakerTests.m */; };
+		0A0D028E1C2E1BB300DF8550 /* NumberOfPlayersButtonsViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A0D028D1C2E1BB300DF8550 /* NumberOfPlayersButtonsViewControllerTests.m */; };
 		0A137F051C21FE3000D10B65 /* GFHCardCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A137F041C21FE3000D10B65 /* GFHCardCollectionCell.m */; };
 		0AB1A0371C1F5F4D003BA562 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB1A0361C1F5F4D003BA562 /* main.m */; };
 		0AB1A03A1C1F5F4D003BA562 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB1A0391C1F5F4D003BA562 /* AppDelegate.m */; };
@@ -53,7 +52,6 @@
 		0AFBC9A71C2C9C1C00CDB66B /* MatchNewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFBC9A61C2C9C1C00CDB66B /* MatchNewUITests.m */; };
 		0AFBC9AD1C2CA2A000CDB66B /* UITestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFBC9AC1C2CA2A000CDB66B /* UITestHelper.m */; };
 		0AFBC9D81C2DC64C00CDB66B /* GFHNumberOfPlayersButtonsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFBC9D71C2DC64C00CDB66B /* GFHNumberOfPlayersButtonsViewController.m */; };
-		0AFBC9DB1C2DCB2000CDB66B /* GFHNumberOfPlayersButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFBC9DA1C2DCB2000CDB66B /* GFHNumberOfPlayersButtonCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,9 +100,8 @@
 		0A045C2C1C21EE0700A5006E /* GFHPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFHPlayerViewController.m; sourceTree = "<group>"; };
 		0A0D02861C2DE03500DF8550 /* KTCenterFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTCenterFlowLayout.h; sourceTree = "<group>"; };
 		0A0D02871C2DE03500DF8550 /* KTCenterFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTCenterFlowLayout.m; sourceTree = "<group>"; };
-		0A0D028A1C2DEA9600DF8550 /* NumberOfPlayersButtonMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberOfPlayersButtonMaker.h; sourceTree = "<group>"; };
-		0A0D028B1C2DEA9600DF8550 /* NumberOfPlayersButtonMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberOfPlayersButtonMaker.m; sourceTree = "<group>"; };
-		0A0D028D1C2E1BB300DF8550 /* NumberOfPlayersButtonMakerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberOfPlayersButtonMakerTests.m; sourceTree = "<group>"; };
+		0A0D028D1C2E1BB300DF8550 /* NumberOfPlayersButtonsViewControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberOfPlayersButtonsViewControllerTests.m; sourceTree = "<group>"; };
+		0A0D028F1C2F091B00DF8550 /* GFHColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFHColors.h; sourceTree = "<group>"; };
 		0A137F031C21FE3000D10B65 /* GFHCardCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFHCardCollectionCell.h; sourceTree = "<group>"; };
 		0A137F041C21FE3000D10B65 /* GFHCardCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFHCardCollectionCell.m; sourceTree = "<group>"; };
 		0AB1A0321C1F5F4D003BA562 /* GoFishIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoFishIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,8 +155,6 @@
 		0AFBC9AC1C2CA2A000CDB66B /* UITestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITestHelper.m; sourceTree = "<group>"; };
 		0AFBC9D61C2DC64C00CDB66B /* GFHNumberOfPlayersButtonsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFHNumberOfPlayersButtonsViewController.h; sourceTree = "<group>"; };
 		0AFBC9D71C2DC64C00CDB66B /* GFHNumberOfPlayersButtonsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFHNumberOfPlayersButtonsViewController.m; sourceTree = "<group>"; };
-		0AFBC9D91C2DCB2000CDB66B /* GFHNumberOfPlayersButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFHNumberOfPlayersButtonCell.h; sourceTree = "<group>"; };
-		0AFBC9DA1C2DCB2000CDB66B /* GFHNumberOfPlayersButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFHNumberOfPlayersButtonCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,8 +246,6 @@
 			children = (
 				0A137F031C21FE3000D10B65 /* GFHCardCollectionCell.h */,
 				0A137F041C21FE3000D10B65 /* GFHCardCollectionCell.m */,
-				0AFBC9D91C2DCB2000CDB66B /* GFHNumberOfPlayersButtonCell.h */,
-				0AFBC9DA1C2DCB2000CDB66B /* GFHNumberOfPlayersButtonCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -324,7 +317,7 @@
 				0AB1A0831C207E5A003BA562 /* PlayerTests.m */,
 				0AB1A0771C1F640C003BA562 /* RepositoryTests.m */,
 				0AD4C1AB1C2310B900385FF4 /* UserTests.m */,
-				0A0D028D1C2E1BB300DF8550 /* NumberOfPlayersButtonMakerTests.m */,
+				0A0D028D1C2E1BB300DF8550 /* NumberOfPlayersButtonsViewControllerTests.m */,
 				0AFBC99B1C2B301600CDB66B /* TestHelper.h */,
 				0AFBC99C1C2B301600CDB66B /* TestHelper.m */,
 				0A045C091C21CFFB00A5006E /* match_json_fixture.json */,
@@ -352,14 +345,13 @@
 				0A0D02891C2DE14600DF8550 /* OutsideCode */,
 				0AB1A06B1C1F5FF1003BA562 /* Card.h */,
 				0AB1A06C1C1F5FF1003BA562 /* Card.m */,
+				0A0D028F1C2F091B00DF8550 /* GFHColors.h */,
 				0AB1A0741C1F63A9003BA562 /* GFHDatabase.h */,
 				0AB1A0751C1F63A9003BA562 /* GFHDatabase.m */,
 				0AB1A06E1C1F60FC003BA562 /* GFHRepository.h */,
 				0AB1A06F1C1F60FC003BA562 /* GFHRepository.m */,
 				0AB1A07E1C207144003BA562 /* MatchPerspective.h */,
 				0AB1A07F1C207144003BA562 /* MatchPerspective.m */,
-				0A0D028A1C2DEA9600DF8550 /* NumberOfPlayersButtonMaker.h */,
-				0A0D028B1C2DEA9600DF8550 /* NumberOfPlayersButtonMaker.m */,
 				0AB1A07B1C1F6D43003BA562 /* Player.h */,
 				0AB1A07C1C1F6D43003BA562 /* Player.m */,
 				0AD4C1A81C23105700385FF4 /* User.h */,
@@ -544,7 +536,6 @@
 				0AB1A0861C2095FD003BA562 /* MatchPerspective.m in Sources */,
 				0AE827DE1C28729D00261231 /* GFHMatchNewViewController.m in Sources */,
 				0A137F051C21FE3000D10B65 /* GFHCardCollectionCell.m in Sources */,
-				0AFBC9DB1C2DCB2000CDB66B /* GFHNumberOfPlayersButtonCell.m in Sources */,
 				0AD4C1AA1C23105700385FF4 /* User.m in Sources */,
 				0AB1A0761C1F63A9003BA562 /* GFHDatabase.m in Sources */,
 				0AD4C1B11C23165C00385FF4 /* GFHLogInViewController.m in Sources */,
@@ -552,7 +543,6 @@
 				0AFBC9A41C2C64C200CDB66B /* CALayer+RuntimeAttribute.m in Sources */,
 				0AB1A07D1C1F6D43003BA562 /* Player.m in Sources */,
 				0AB1A06D1C1F5FF1003BA562 /* Card.m in Sources */,
-				0A0D028C1C2DEA9600DF8550 /* NumberOfPlayersButtonMaker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,7 +552,7 @@
 			files = (
 				0AD4C1BA1C24C09F00385FF4 /* GFHMockServer.m in Sources */,
 				0AD4C1AE1C23129200385FF4 /* DatabaseTests.m in Sources */,
-				0A0D028E1C2E1BB300DF8550 /* NumberOfPlayersButtonMakerTests.m in Sources */,
+				0A0D028E1C2E1BB300DF8550 /* NumberOfPlayersButtonsViewControllerTests.m in Sources */,
 				0AB1A0841C207E5A003BA562 /* PlayerTests.m in Sources */,
 				0AB1A0781C1F640C003BA562 /* RepositoryTests.m in Sources */,
 				0AD4C1AC1C2310B900385FF4 /* UserTests.m in Sources */,

@@ -13,7 +13,6 @@
 #import "PTPusher.h"
 #import "PTPusherChannel.h"
 #import "PTPusherEvent.h"
-#import "NumberOfPlayersButtonMaker.h"
 #import "GFHNumberOfPlayersButtonsViewController.h"
 
 static NSString * const NAVIGATION_LOGIN_STORYBOARD_ID = @"GFHNavigationLogIn";
@@ -47,10 +46,8 @@ NSString * const GFHPusherKey = @"39cc3ae7664f69e97e12";
 }
 
 - (void)addNumberOfPlayersButtons {
-    NSMutableArray *myArray = [[NumberOfPlayersButtonMaker new] makeNumberOfPlayersButtons:self.numberOfPlayers];
-    self.numberOfPlayersButtonsViewController.numberOfPlayersButtons = myArray;
+    [self.numberOfPlayersButtonsViewController makeNumberOfPlayersButtons:self.numberOfPlayers];
 }
-
 
 - (void)getPossibleNumberOfPlayers {
     [[GFHRepository sharedRepository] getNumberOfPlayersWithSuccess:^(NSArray *numberOfPlayers) {
