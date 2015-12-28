@@ -37,6 +37,7 @@
 		0AB1A0821C207212003BA562 /* MatchPerspectiveTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB1A0811C207212003BA562 /* MatchPerspectiveTests.m */; };
 		0AB1A0841C207E5A003BA562 /* PlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB1A0831C207E5A003BA562 /* PlayerTests.m */; };
 		0AB1A0861C2095FD003BA562 /* MatchPerspective.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB1A07F1C207144003BA562 /* MatchPerspective.m */; };
+		0AC425EB1C31943200198FF7 /* GoFishNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC425EA1C31943200198FF7 /* GoFishNavigationController.m */; };
 		0AD4C1AA1C23105700385FF4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4C1A91C23105700385FF4 /* User.m */; };
 		0AD4C1AC1C2310B900385FF4 /* UserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4C1AB1C2310B900385FF4 /* UserTests.m */; };
 		0AD4C1AE1C23129200385FF4 /* DatabaseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD4C1AD1C23129200385FF4 /* DatabaseTests.m */; };
@@ -132,6 +133,8 @@
 		0AB1A07F1C207144003BA562 /* MatchPerspective.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchPerspective.m; sourceTree = "<group>"; };
 		0AB1A0811C207212003BA562 /* MatchPerspectiveTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchPerspectiveTests.m; sourceTree = "<group>"; };
 		0AB1A0831C207E5A003BA562 /* PlayerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerTests.m; sourceTree = "<group>"; };
+		0AC425E91C31943200198FF7 /* GoFishNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoFishNavigationController.h; sourceTree = "<group>"; };
+		0AC425EA1C31943200198FF7 /* GoFishNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoFishNavigationController.m; sourceTree = "<group>"; };
 		0AD4C1A81C23105700385FF4 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		0AD4C1A91C23105700385FF4 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		0AD4C1AB1C2310B900385FF4 /* UserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTests.m; sourceTree = SOURCE_ROOT; };
@@ -224,6 +227,8 @@
 				0AFBC9D71C2DC64C00CDB66B /* GFHNumberOfPlayersButtonsViewController.m */,
 				0A045C271C21DAC400A5006E /* GFHMatchViewController.h */,
 				0A045C281C21DAC400A5006E /* GFHMatchViewController.m */,
+				0AC425E91C31943200198FF7 /* GoFishNavigationController.h */,
+				0AC425EA1C31943200198FF7 /* GoFishNavigationController.m */,
 				0A045C2B1C21EE0700A5006E /* GFHPlayerViewController.h */,
 				0A045C2C1C21EE0700A5006E /* GFHPlayerViewController.m */,
 			);
@@ -528,6 +533,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AB1A03A1C1F5F4D003BA562 /* AppDelegate.m in Sources */,
+				0AC425EB1C31943200198FF7 /* GoFishNavigationController.m in Sources */,
 				0AB1A0371C1F5F4D003BA562 /* main.m in Sources */,
 				0A045C2D1C21EE0700A5006E /* GFHPlayerViewController.m in Sources */,
 				0AB1A0701C1F60FC003BA562 /* GFHRepository.m in Sources */,

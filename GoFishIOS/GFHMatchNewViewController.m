@@ -25,6 +25,7 @@ NSString * const GFHPusherKey = @"39cc3ae7664f69e97e12";
 // might delete the next line, not sure it is needed
 @property (nonatomic, weak) id<PTPusherDelegate> delegate;
 @property (nonatomic, strong) GFHNumberOfPlayersButtonsViewController *numberOfPlayersButtonsViewController;
+
 @end
 
 @implementation GFHMatchNewViewController
@@ -61,12 +62,13 @@ NSString * const GFHPusherKey = @"39cc3ae7664f69e97e12";
 
 
 - (void)askForLogIn {
-    UINavigationController *navigationLogInController = [self.storyboard instantiateViewControllerWithIdentifier:NAVIGATION_LOGIN_STORYBOARD_ID];
-    [self presentViewController:navigationLogInController animated:YES completion:nil];
+    UIViewController *logInViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"GFHLogInViewController"];
+    [self.navigationController presentViewController:logInViewController animated:YES completion:nil];
 }
 
 - (void)sendToGame {
-//    [self.navigationController pushViewController:VIEWCONTROLLERFORGAMEGOESHERE animated:YES];
+    UIViewController *matchViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"GFHMatchViewController"];
+    [self.navigationController pushViewController:matchViewController animated:YES];
 }
     
 - (void)subscribeToPusher {
@@ -81,10 +83,10 @@ NSString * const GFHPusherKey = @"39cc3ae7664f69e97e12";
 }
 
 - (void)handlePusherEvent:(PTPusherEvent *) event {
-    //    change this to push to controller matchview
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"From Pusher" message:event.data[@"message"] preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
-    [self presentViewController:alert animated:YES completion:nil];
+//    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"From Pusher" message:event.data[@"message"] preferredStyle:UIAlertControllerStyleAlert];
+//    [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+//    [self presentViewController:alert animated:YES completion:nil];
+    [self sendToGame];
 }
 
 - (void)showAlert:(NSString *)alertText withAlertMessage:(NSString *)alertMessage {
