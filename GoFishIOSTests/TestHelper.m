@@ -16,11 +16,10 @@
 }
 
 - (void)logIn {
-    XCTestExpectation *expectation = [self expectationWithDescription:@"Login with Good User Info"];
-    [self.repository loginWithSuccess:^{
-        [expectation fulfill];
-    }failure:nil withEmail:@"mandysimon88@gmail.com" withPassword:@"rose0212"];
-    [self waitForExpectationsWithTimeout:4.0 handler:nil];
+    self.repository.database.user = [User new];
+    self.repository.database.user.authentication_token = @"dsgdwzuwxkd7d_T3aVWb";
+    self.repository.database.user.email = @"mandysimon88@gmail.com";
+    self.repository.database.user.externalId = @"92";
 }
 
 - (void)mockLogIn {

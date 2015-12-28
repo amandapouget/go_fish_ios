@@ -27,10 +27,19 @@
     [super tearDown];
 }
 
+- (void)testPostNumberOfPlayersWithSuccess {
+    [self.testHelper logIn];
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Post Number of Players"];
+    [self.testHelper.repository postNumberOfPlayersWithSuccess:^{
+        [expectation fulfill];
+    } failure:nil withNumber:@2];
+    [self waitForExpectationsWithTimeout:4.0 handler:nil];
+}
+
 - (void)testGetNumberOfPlayersWithSuccess {
     [self.testHelper logIn];
     XCTestExpectation *expectation = [self expectationWithDescription:@"Get Number of Players"];
-    [self.testHelper.repository getNumberOfPlayersWithSuccess:^(NSArray *playerRange){
+    [self.testHelper.repository getNumberOfPlayersWithSuccess:^(NSArray *playerRange) {
         XCTAssert(playerRange !=nil);
         [expectation fulfill];
     } failure:nil

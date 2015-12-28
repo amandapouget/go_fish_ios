@@ -12,6 +12,7 @@ extern NSString * const GFHPusherKey;
 @interface GFHMatchNewViewController : UIViewController
 
 @property BOOL subscribed;
+@property (weak, nonatomic) IBOutlet UILabel *speech;
 @property NSArray *numberOfPlayers;
 - (void)subscribeToPusher;
 - (void)getPossibleNumberOfPlayers;

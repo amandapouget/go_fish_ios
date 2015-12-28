@@ -10,17 +10,18 @@
 #import "KTCenterFlowLayout.h"
 #import "CALayer+RuntimeAttribute.h"
 #import "GFHColors.h"
+#import "GFHRepository.h"
+#import "GFHMatchNewViewController.h"
 
 static NSString * const CELL_ID = @"NumberOfPlayersButtonCell";
 
 @interface GFHNumberOfPlayersButtonsViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *numberOfPlayersCollectionView;
-@property NSArray *numberOfPlayers;
+@property (nonatomic, strong) NSArray *numberOfPlayers;
+@property (nonatomic, assign) BOOL gameAlreadyRequested;
 @end
 
 @implementation GFHNumberOfPlayersButtonsViewController
-
-static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -44,14 +45,12 @@ static NSString * const reuseIdentifier = @"Cell";
     return cell;
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     UIButton *button = [self.numberOfPlayersButtons objectAtIndex:indexPath.row];
     return CGSizeMake(button.frame.size.width, button.frame.size.height);
 }
 
-- (void)viewWillLayoutSubviews
-{
+- (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     [self.numberOfPlayersCollectionView.collectionViewLayout invalidateLayout];
 }
@@ -80,13 +79,14 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 - (IBAction)buttonPressed:(id)sender {
-    //    get button.tag and then do something with it
-    //    UIButton *clicked = (UIButton *)sender;
-    //    int chosenNumberOfPlayers = clicked.tag;
-    //    submit to server match/create
-    //    insert code here...
-    UIButton *button = (UIButton*)sender;
-    NSLog(@"BUTTON %@ ON THE NUMBEROFPLAYERSBUTTONSVIEWCONTROLLER WAS PUSHED", button.currentTitle);
+    if (!_gameAlreadyRequested) {
+        UIButton *buttonClicked = (UIButton *)sender;
+        NSInteger chosenNumberOfPlayers = buttonClicked.tag;
+        [[GFHRepository new] postNumberOfPlayersWithSuccess:nil failure:^(NSString *errorMessage) { NSLog(@"%@", errorMessage);
+        } withNumber: @(chosenNumberOfPlayers)];
+        ((GFHMatchNewViewController*)_parent).speech.text = [NSString stringWithFormat:@"Game with %ld players requested!", (long)chosenNumberOfPlayers];
+    }
+    _gameAlreadyRequested = YES;
 }
 
 #pragma mark <UICollectionViewDelegate>

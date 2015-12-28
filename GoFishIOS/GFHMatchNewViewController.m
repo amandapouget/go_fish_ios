@@ -24,7 +24,6 @@ NSString * const GFHPusherKey = @"39cc3ae7664f69e97e12";
 }
 // might delete the next line, not sure it is needed
 @property (nonatomic, weak) id<PTPusherDelegate> delegate;
-@property (weak, nonatomic) IBOutlet UILabel *speech;
 @property (nonatomic, strong) GFHNumberOfPlayersButtonsViewController *numberOfPlayersButtonsViewController;
 @end
 
@@ -32,6 +31,7 @@ NSString * const GFHPusherKey = @"39cc3ae7664f69e97e12";
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     self.numberOfPlayersButtonsViewController = [segue destinationViewController];
+    self.numberOfPlayersButtonsViewController.parent = self;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -45,6 +45,7 @@ NSString * const GFHPusherKey = @"39cc3ae7664f69e97e12";
     }
 }
 
+// move the next two methods to buttoncontroller view did load
 - (void)addNumberOfPlayersButtons {
     [self.numberOfPlayersButtonsViewController makeNumberOfPlayersButtons:self.numberOfPlayers];
 }
@@ -64,7 +65,10 @@ NSString * const GFHPusherKey = @"39cc3ae7664f69e97e12";
     [self presentViewController:navigationLogInController animated:YES completion:nil];
 }
 
-
+- (void)sendToGame {
+//    [self.navigationController pushViewController:VIEWCONTROLLERFORGAMEGOESHERE animated:YES];
+}
+    
 - (void)subscribeToPusher {
     _pusher = [PTPusher pusherWithKey:GFHPusherKey delegate:self encrypted:YES];
     PTPusherChannel *channel = [_pusher subscribeToChannelNamed:[NSString stringWithFormat:@"waiting_for_players_channel_%@", [GFHDatabase sharedDatabase].user.externalId]];
