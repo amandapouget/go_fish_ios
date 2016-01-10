@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface GFHMatchViewController : UIViewController
-
+@property (nonatomic, strong) NSNumber *matchExternalId;
+@property (weak, nonatomic) IBOutlet UILabel *speech;
 @end

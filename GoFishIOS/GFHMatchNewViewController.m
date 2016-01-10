@@ -7,6 +7,8 @@
 //
 
 #import "GFHMatchNewViewController.h"
+#import "GFHMatchViewController.h"
+#import "GFHLogInViewController.h"
 #import "GFHRepository.h"
 #import "GFHDatabase.h"
 #import "User.h"
@@ -62,12 +64,13 @@ NSString * const GFHPusherKey = @"39cc3ae7664f69e97e12";
 
 
 - (void)askForLogIn {
-    UIViewController *logInViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"GFHLogInViewController"];
+    GFHLogInViewController *logInViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"GFHLogInViewController"];
     [self.navigationController presentViewController:logInViewController animated:YES completion:nil];
 }
 
-- (void)sendToGame {
-    UIViewController *matchViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"GFHMatchViewController"];
+- (void)sendToMatchWithId:(NSNumber *)matchExternalId {
+    GFHMatchViewController *matchViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"GFHMatchViewController"];
+    matchViewController.matchExternalId = matchExternalId;
     [self.navigationController pushViewController:matchViewController animated:YES];
 }
     
@@ -83,10 +86,7 @@ NSString * const GFHPusherKey = @"39cc3ae7664f69e97e12";
 }
 
 - (void)handlePusherEvent:(PTPusherEvent *) event {
-//    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"From Pusher" message:event.data[@"message"] preferredStyle:UIAlertControllerStyleAlert];
-//    [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
-//    [self presentViewController:alert animated:YES completion:nil];
-    [self sendToGame];
+    [self sendToMatchWithId:[NSNumber numberWithInteger:[event.data[@"message"] integerValue]]];
 }
 
 - (void)showAlert:(NSString *)alertText withAlertMessage:(NSString *)alertMessage {

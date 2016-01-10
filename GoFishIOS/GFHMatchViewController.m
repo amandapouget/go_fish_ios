@@ -15,7 +15,6 @@
 
 
 @interface GFHMatchViewController ()
-@property (nonatomic, strong) NSNumber *matchExternalId;
 @property (nonatomic, strong) MatchPerspective *matchPerspective;
 @property (nonatomic, strong) GFHPlayerViewController *playerViewController;
 @end
@@ -35,6 +34,7 @@
     [[GFHRepository sharedRepository] loadMatchPerspectiveWithSuccess:^{
         self.matchPerspective = [GFHDatabase sharedDatabase].matchPerspective;
         self.playerViewController.player = self.matchPerspective.player;
+        self.speech.text = self.matchPerspective.message;
     } failure:nil withMatchExternalId:self.matchExternalId];
 }
 
@@ -44,3 +44,7 @@
 }
 
 @end
+
+//UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"From Pusher" message:[NSString stringWithFormat:@"match %d", self.matchExternalId.intValue] preferredStyle:UIAlertControllerStyleAlert];
+//[alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+//[self presentViewController:alert animated:YES completion:nil];

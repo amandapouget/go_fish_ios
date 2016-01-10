@@ -7,7 +7,9 @@
 //
 
 #import "GFHPlayerViewController.h"
+#import "GFHRepository.h"
 #import "GFHCardCollectionCell.h"
+#import "KTCenterFlowLayout.h"
 #import "Player.h"
 
 static NSString * const CELL_ID = @"CardCell";
@@ -15,13 +17,17 @@ static NSString * const CELL_ID = @"CardCell";
 @interface GFHPlayerViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *cardCollectionView;
 @property (weak, nonatomic) IBOutlet UILabel *playerNameLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *playerIconImage;
+
 @end
 
 @implementation GFHPlayerViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
+    KTCenterFlowLayout *layout = [KTCenterFlowLayout new];
+    layout.minimumInteritemSpacing = 10.f;
+    layout.minimumLineSpacing = 10.f;
     layout.itemSize = CGSizeMake (71, 96);
     self.cardCollectionView.collectionViewLayout = layout;
 }
@@ -33,6 +39,8 @@ static NSString * const CELL_ID = @"CardCell";
 
 - (void)setUpPlayerInfo {
     self.playerNameLabel.text =_player.name;
+    NSURL *imageURL = [NSURL URLWithString:_player.icon relativeToURL:[GFHRepository sharedRepository].baseURL];
+    [self.playerIconImage setImageWithURL:imageURL];
     [self.cardCollectionView reloadData];
 }
 
