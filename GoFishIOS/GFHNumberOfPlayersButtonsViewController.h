@@ -13,6 +13,4 @@
 @interface GFHNumberOfPlayersButtonsViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (nonatomic, strong) UIViewController *parent;
 @property (nonatomic, strong) NSMutableArray *numberOfPlayersButtons;
-- (void)makeNumberOfPlayersButtons:(NSArray *)numberOfPlayers;
-
 @end

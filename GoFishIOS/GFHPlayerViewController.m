@@ -7,10 +7,12 @@
 //
 
 #import "GFHPlayerViewController.h"
+#import "GFHMatchViewController.h"
 #import "GFHRepository.h"
 #import "GFHCardCollectionCell.h"
 #import "KTCenterFlowLayout.h"
 #import "Player.h"
+#import "Card.h"
 
 static NSString * const CELL_ID = @"CardCell";
 
@@ -18,7 +20,6 @@ static NSString * const CELL_ID = @"CardCell";
 @property (weak, nonatomic) IBOutlet UICollectionView *cardCollectionView;
 @property (weak, nonatomic) IBOutlet UILabel *playerNameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *playerIconImage;
-
 @end
 
 @implementation GFHPlayerViewController
@@ -60,4 +61,11 @@ static NSString * const CELL_ID = @"CardCell";
     return cell;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    ((GFHMatchViewController *)_parent).cardSelected = self.player.cards[indexPath.row];
+}
+
 @end
+//UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Card selected" message:[NSString stringWithFormat:@"card rank %@", card.rank] preferredStyle:UIAlertControllerStyleAlert];
+//[alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+//[self presentViewController:alert animated:YES completion:nil];

@@ -11,7 +11,6 @@
 @class Player;
 
 @interface GFHPlayerViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
-
+@property (nonatomic, strong) UIViewController *parent;
 @property (nonatomic, strong) Player *player;
-
 @end

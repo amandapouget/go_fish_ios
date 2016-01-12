@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Player.h"
+#import "Card.h"
 
-@interface GFHMatchViewController : UIViewController
+@interface GFHMatchViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+@property BOOL subscribed;
 @property (nonatomic, strong) NSNumber *matchExternalId;
 @property (weak, nonatomic) IBOutlet UILabel *speech;
+@property (weak, nonatomic) Player *opponentSelected;
+@property (weak, nonatomic) Card *cardSelected;
 @end

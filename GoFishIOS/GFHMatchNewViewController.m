@@ -20,14 +20,10 @@
 static NSString * const NAVIGATION_LOGIN_STORYBOARD_ID = @"GFHNavigationLogIn";
 NSString * const GFHPusherKey = @"39cc3ae7664f69e97e12";
 
-
 @interface GFHMatchNewViewController ()<PTPusherDelegate> {
     PTPusher *_pusher;
 }
-// might delete the next line, not sure it is needed
-@property (nonatomic, weak) id<PTPusherDelegate> delegate;
 @property (nonatomic, strong) GFHNumberOfPlayersButtonsViewController *numberOfPlayersButtonsViewController;
-
 @end
 
 @implementation GFHMatchNewViewController
@@ -42,26 +38,10 @@ NSString * const GFHPusherKey = @"39cc3ae7664f69e97e12";
     if ([[GFHRepository sharedRepository] loggedIn]) {
         [self.speech setText:@"Choose your pond, Fishmaster!"];
         [self subscribeToPusher];
-        [self getPossibleNumberOfPlayers];
     } else {
         [self askForLogIn];
     }
 }
-
-// move the next two methods to buttoncontroller view did load
-- (void)addNumberOfPlayersButtons {
-    [self.numberOfPlayersButtonsViewController makeNumberOfPlayersButtons:self.numberOfPlayers];
-}
-
-- (void)getPossibleNumberOfPlayers {
-    [[GFHRepository sharedRepository] getNumberOfPlayersWithSuccess:^(NSArray *numberOfPlayers) {
-        self.numberOfPlayers = numberOfPlayers;
-        [self addNumberOfPlayersButtons];
-    } failure:^(NSString *errorMessage){
-        [self showAlert:@"Getting number of players failed" withAlertMessage:errorMessage];
-    }];
-}
-
 
 - (void)askForLogIn {
     GFHLogInViewController *logInViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"GFHLogInViewController"];
@@ -88,17 +68,17 @@ NSString * const GFHPusherKey = @"39cc3ae7664f69e97e12";
 - (void)handlePusherEvent:(PTPusherEvent *) event {
     [self sendToMatchWithId:[NSNumber numberWithInteger:[event.data[@"message"] integerValue]]];
 }
-
-- (void)showAlert:(NSString *)alertText withAlertMessage:(NSString *)alertMessage {
-    NSLog(@"%@",alertText);
-    NSLog(@"%@",alertMessage);
-    UIAlertController* alert = [UIAlertController alertControllerWithTitle:alertText
-                                                                   message:alertMessage
-                                                            preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK"
-                                                            style:UIAlertActionStyleDefault
-                                                          handler:^(UIAlertAction * action) {}];
-    [alert addAction:defaultAction];
-    [self presentViewController:alert animated:YES completion:nil];
-}
 @end
+
+//- (void)showAlert:(NSString *)alertText withAlertMessage:(NSString *)alertMessage {
+//    NSLog(@"%@",alertText);
+//    NSLog(@"%@",alertMessage);
+//    UIAlertController* alert = [UIAlertController alertControllerWithTitle:alertText
+//                                                                   message:alertMessage
+//                                                            preferredStyle:UIAlertControllerStyleAlert];
+//    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK"
+//                                                            style:UIAlertActionStyleDefault
+//                                                          handler:^(UIAlertAction * action) {}];
+//    [alert addAction:defaultAction];
+//    [self presentViewController:alert animated:YES completion:nil];
+//}

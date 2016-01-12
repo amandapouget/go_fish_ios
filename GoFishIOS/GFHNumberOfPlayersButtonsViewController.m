@@ -31,6 +31,17 @@ static NSString * const CELL_ID = @"NumberOfPlayersButtonCell";
     self.numberOfPlayersCollectionView.collectionViewLayout = layout;
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+ if ([[GFHRepository sharedRepository] loggedIn]) {
+     [[GFHRepository sharedRepository] getNumberOfPlayersWithSuccess:^(NSArray *numberOfPlayers) {
+        self.numberOfPlayers = numberOfPlayers;
+        [self makeNumberOfPlayersButtons:self.numberOfPlayers];
+    } failure:nil
+     ];
+ }
+}
+
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
@@ -56,7 +67,6 @@ static NSString * const CELL_ID = @"NumberOfPlayersButtonCell";
 }
 
 - (void)makeNumberOfPlayersButtons:(NSArray *)numberOfPlayers {
-    self.numberOfPlayers = numberOfPlayers;
     self.numberOfPlayersButtons = [NSMutableArray new];
     for (NSNumber *number in self.numberOfPlayers) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -78,10 +88,9 @@ static NSString * const CELL_ID = @"NumberOfPlayersButtonCell";
     [self.numberOfPlayersCollectionView reloadData];
 }
 
-- (IBAction)buttonPressed:(id)sender {
+- (IBAction)buttonPressed:(UIButton *)sender {
     if (!_gameAlreadyRequested) {
-        UIButton *buttonClicked = (UIButton *)sender;
-        NSInteger chosenNumberOfPlayers = buttonClicked.tag;
+        NSInteger chosenNumberOfPlayers = sender.tag;
         [[GFHRepository new] postNumberOfPlayersWithSuccess:nil failure:^(NSString *errorMessage) { NSLog(@"%@", errorMessage);
         } withNumber: @(chosenNumberOfPlayers)];
         ((GFHMatchNewViewController*)_parent).speech.text = [NSString stringWithFormat:@"Game with %ld players requested!", (long)chosenNumberOfPlayers];

@@ -22,6 +22,22 @@ static GFHMockServer *_sharedHelper;
     return _sharedHelper;
 }
 
+
+// want to have this test check the params not just if one is logged in, but cannot find a way to do that with ohhttpstubs
+- (void)mockPatchMatchResponse {
+    [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest * _Nonnull request) {
+        return [request.URL.relativePath rangeOfString:@"/api/matches/\\d+" options:NSRegularExpressionSearch].location != NSNotFound;
+    } withStubResponse:^OHHTTPStubsResponse * _Nonnull(NSURLRequest * _Nonnull request) {
+        if ([self matchesToken:request withToken:@"valid_token"]) {
+            return [self JSONResponseWithStatus:200 body:@{}];
+        } else {
+            return [self JSONResponseWithStatus:401 body:@{
+                                                           @"error": @"Invalid token."
+                                                           }];
+        }
+    }];
+}
+
 - (void)mockLoadMatchPerspectiveResponse {
     [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest * _Nonnull request) {
         return [request.URL.relativePath rangeOfString:@"/api/matches/\\d+" options:NSRegularExpressionSearch].location != NSNotFound;

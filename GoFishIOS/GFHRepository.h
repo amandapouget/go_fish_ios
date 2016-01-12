@@ -17,6 +17,7 @@ typedef void (^BlockWithString)(NSString *);
 @interface GFHRepository : AFHTTPSessionManager
 @property (nonatomic, strong) GFHDatabase *database;
 + (instancetype)sharedRepository;
+- (void)patchMatchWithSuccess:(EmptyBlock)success failure:(EmptyBlock)failure withMatchExternalId:(NSNumber *)matchExternalId withCardRank:(NSString *)cardRank withOpponentExternalID:(NSNumber *)opponentExternalId;
 - (void)postNumberOfPlayersWithSuccess:(EmptyBlock)success failure:(EmptyBlock)failure withNumber:(NSNumber *)number;
 - (void)getNumberOfPlayersWithSuccess:(EmptyBlock)success failure:(EmptyBlock)failure;
 - (void)loadMatchPerspectiveWithSuccess:(EmptyBlock)success failure:(EmptyBlock)failure withMatchExternalId:(NSNumber *)matchExternalId;

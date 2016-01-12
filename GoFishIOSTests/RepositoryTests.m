@@ -27,6 +27,17 @@
     [super tearDown];
 }
 
+- (void)testPatchMatchWithSuccess {
+    [self.testHelper mockLogIn];
+    [[GFHMockServer sharedHelper]mockPatchMatchResponse];
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Post Match Update"];
+    [self.testHelper.repository patchMatchWithSuccess:^{
+        [expectation fulfill];
+    } failure:nil withMatchExternalId:@1 withCardRank:@"two" withOpponentExternalID:@1];
+    [self waitForExpectationsWithTimeout:4.0 handler:nil];
+    
+}
+
 - (void)testPostNumberOfPlayersWithSuccess {
     [self.testHelper logIn];
     XCTestExpectation *expectation = [self expectationWithDescription:@"Post Number of Players"];

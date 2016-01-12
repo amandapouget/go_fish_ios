@@ -31,6 +31,22 @@ static NSString * const INVALID_LOGIN_ERROR = @"invalid email or password";
     return repository;
 }
 
+- (void)patchMatchWithSuccess:(EmptyBlock)success failure:(EmptyBlock)failure withMatchExternalId:(NSNumber *)matchExternalId withCardRank:(NSString *)cardRank withOpponentExternalID:(NSNumber *)opponentExternalId {
+    NSDictionary *params = @{@"opponentUserId": opponentExternalId,
+                             @"rank": cardRank};
+    [self.requestSerializer setValue:[NSString stringWithFormat:@"Token token=%@", self.database.user.authentication_token] forHTTPHeaderField:@"Authorization"];
+    [self PATCH:[NSString stringWithFormat:@"/api/matches/%d", [matchExternalId intValue]] parameters:params success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * _Nullable responseObject) {
+        if (success) {
+            success();
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSDictionary *failureError = [self serializeFailure:error];
+        if (failure) {
+            failure(failureError[@"error"]);
+        }
+    }];
+}
+
 - (void)postNumberOfPlayersWithSuccess:(EmptyBlock)success failure:(EmptyBlock)failure withNumber:(NSNumber *)number {
     NSDictionary *params = @{@"num_players": number};
     [self.requestSerializer setValue:[NSString stringWithFormat:@"Token token=%@", self.database.user.authentication_token] forHTTPHeaderField:@"Authorization"];

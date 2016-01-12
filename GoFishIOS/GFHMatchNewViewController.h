@@ -13,7 +13,5 @@ extern NSString * const GFHPusherKey;
 
 @property BOOL subscribed;
 @property (weak, nonatomic) IBOutlet UILabel *speech;
-@property NSArray *numberOfPlayers;
 - (void)subscribeToPusher;
-- (void)getPossibleNumberOfPlayers;
 @end
