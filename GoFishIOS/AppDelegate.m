@@ -16,10 +16,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil]
-     setTitleTextAttributes:
-     @{NSFontAttributeName:[UIFont boldSystemFontOfSize:20.0]}
-     forState:UIControlStateNormal];
+    [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UINavigationBar class]]] setTitleTextAttributes:
+     @{NSFontAttributeName:[UIFont boldSystemFontOfSize:20.0]} forState:UIControlStateNormal];
     return YES;
 }
 
