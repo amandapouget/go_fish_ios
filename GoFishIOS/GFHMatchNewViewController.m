@@ -16,6 +16,8 @@
 #import "PTPusherChannel.h"
 #import "PTPusherEvent.h"
 #import "GFHNumberOfPlayersButtonsViewController.h"
+#import "GFHColors.h"
+#import "CALayer+RuntimeAttribute.h"
 
 static NSString * const NAVIGATION_LOGIN_STORYBOARD_ID = @"GFHNavigationLogIn";
 NSString * const GFHPusherKey = @"39cc3ae7664f69e97e12";
@@ -27,6 +29,27 @@ NSString * const GFHPusherKey = @"39cc3ae7664f69e97e12";
 @end
 
 @implementation GFHMatchNewViewController
+
+- (void)viewDidLoad {
+    [self customizeNavigationBar];
+}
+
+- (void)customizeNavigationBar {
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(logOut:)];
+    self.navigationController.navigationBar.barTintColor = GoFishRed;
+    self.navigationController.navigationBar.translucent = NO;
+    CALayer *border = [CALayer layer];
+    border.borderIBColor = GoFishYellow;
+    border.borderWidth = 3;
+    CALayer *layer = self.navigationController.navigationBar.layer;
+    border.frame = CGRectMake(0, layer.bounds.size.height, layer.bounds.size.width, 3);
+    [layer addSublayer:border];
+}
+
+- (void)logOut:(id)sender {
+    [[GFHDatabase sharedDatabase ]reset];
+    [self askForLogIn];
+}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     self.numberOfPlayersButtonsViewController = [segue destinationViewController];

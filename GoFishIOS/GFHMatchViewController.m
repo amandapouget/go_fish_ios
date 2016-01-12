@@ -31,6 +31,8 @@ static NSString * const CELL_ID = @"OpponentCell";
 @end
 
 @implementation GFHMatchViewController
+//
+//[myNavigationController popToRootViewControllerAnimated:YES];
 
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -33,6 +33,7 @@ static NSString * const CELL_ID = @"NumberOfPlayersButtonCell";
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    _gameAlreadyRequested = NO;
  if ([[GFHRepository sharedRepository] loggedIn]) {
      [[GFHRepository sharedRepository] getNumberOfPlayersWithSuccess:^(NSArray *numberOfPlayers) {
         self.numberOfPlayers = numberOfPlayers;

@@ -20,8 +20,9 @@
 
 - (void)setCard:(Card *)card {
     _card = card;
-    NSURL *imageURL = [NSURL URLWithString:card.icon relativeToURL:[GFHRepository sharedRepository].baseURL];
-    [self.imageView setImageWithURL:imageURL];
+    NSString *cardFile = [NSString stringWithFormat:@"%@",[card.icon substringFromIndex:14]];
+    UIImage *cardImage = [UIImage imageNamed:cardFile];
+    [self.imageView setImage:cardImage];
 }
 
 @end

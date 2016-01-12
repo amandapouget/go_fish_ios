@@ -28,7 +28,7 @@ UIColorFromRGB(6636321)
 UIColorFromRGB(4139540)
 
 #define GoFishRed \
-UIColorFrom RGB(8388640)
+UIColorFromRGB(8388640)
 
 #endif /* GFHColors_h */
 

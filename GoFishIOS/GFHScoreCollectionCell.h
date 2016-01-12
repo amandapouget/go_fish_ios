@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface GFHScoreCollectionCell : UICollectionViewCell
-@property (nonatomic, strong) NSString *score;
+@property (nonatomic, strong) NSArray *score;
 @end
