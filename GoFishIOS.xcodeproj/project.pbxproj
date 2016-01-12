@@ -20,6 +20,8 @@
 		0A0D028E1C2E1BB300DF8550 /* NumberOfPlayersButtonsViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A0D028D1C2E1BB300DF8550 /* NumberOfPlayersButtonsViewControllerTests.m */; };
 		0A137F051C21FE3000D10B65 /* GFHCardCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A137F041C21FE3000D10B65 /* GFHCardCollectionCell.m */; };
 		0A2C16E41C42977600505B4C /* GFHOpponentCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2C16E31C42977600505B4C /* GFHOpponentCollectionCell.m */; };
+		0A2C16F01C4549B100505B4C /* GFHScoresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2C16EF1C4549B100505B4C /* GFHScoresViewController.m */; };
+		0A2C16F61C45553800505B4C /* GFHScoreCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2C16F51C45553800505B4C /* GFHScoreCollectionCell.m */; };
 		0AB1A0371C1F5F4D003BA562 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB1A0361C1F5F4D003BA562 /* main.m */; };
 		0AB1A03A1C1F5F4D003BA562 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB1A0391C1F5F4D003BA562 /* AppDelegate.m */; };
 		0AB1A0401C1F5F4D003BA562 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AB1A03E1C1F5F4D003BA562 /* Main.storyboard */; };
@@ -108,6 +110,10 @@
 		0A137F041C21FE3000D10B65 /* GFHCardCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFHCardCollectionCell.m; sourceTree = "<group>"; };
 		0A2C16E21C42977600505B4C /* GFHOpponentCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFHOpponentCollectionCell.h; sourceTree = "<group>"; };
 		0A2C16E31C42977600505B4C /* GFHOpponentCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFHOpponentCollectionCell.m; sourceTree = "<group>"; };
+		0A2C16EE1C4549B100505B4C /* GFHScoresViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFHScoresViewController.h; sourceTree = "<group>"; };
+		0A2C16EF1C4549B100505B4C /* GFHScoresViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFHScoresViewController.m; sourceTree = "<group>"; };
+		0A2C16F41C45553800505B4C /* GFHScoreCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFHScoreCollectionCell.h; sourceTree = "<group>"; };
+		0A2C16F51C45553800505B4C /* GFHScoreCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFHScoreCollectionCell.m; sourceTree = "<group>"; };
 		0AB1A0321C1F5F4D003BA562 /* GoFishIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoFishIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AB1A0361C1F5F4D003BA562 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0AB1A0381C1F5F4D003BA562 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -230,6 +236,8 @@
 				0AFBC9D71C2DC64C00CDB66B /* GFHNumberOfPlayersButtonsViewController.m */,
 				0A045C271C21DAC400A5006E /* GFHMatchViewController.h */,
 				0A045C281C21DAC400A5006E /* GFHMatchViewController.m */,
+				0A2C16EE1C4549B100505B4C /* GFHScoresViewController.h */,
+				0A2C16EF1C4549B100505B4C /* GFHScoresViewController.m */,
 				0AC425E91C31943200198FF7 /* GoFishNavigationController.h */,
 				0AC425EA1C31943200198FF7 /* GoFishNavigationController.m */,
 				0A045C2B1C21EE0700A5006E /* GFHPlayerViewController.h */,
@@ -254,6 +262,8 @@
 			children = (
 				0A137F031C21FE3000D10B65 /* GFHCardCollectionCell.h */,
 				0A137F041C21FE3000D10B65 /* GFHCardCollectionCell.m */,
+				0A2C16F41C45553800505B4C /* GFHScoreCollectionCell.h */,
+				0A2C16F51C45553800505B4C /* GFHScoreCollectionCell.m */,
 				0A2C16E21C42977600505B4C /* GFHOpponentCollectionCell.h */,
 				0A2C16E31C42977600505B4C /* GFHOpponentCollectionCell.m */,
 			);
@@ -537,6 +547,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A2C16F61C45553800505B4C /* GFHScoreCollectionCell.m in Sources */,
 				0AB1A03A1C1F5F4D003BA562 /* AppDelegate.m in Sources */,
 				0AC425EB1C31943200198FF7 /* GoFishNavigationController.m in Sources */,
 				0AB1A0371C1F5F4D003BA562 /* main.m in Sources */,
@@ -549,6 +560,7 @@
 				0A137F051C21FE3000D10B65 /* GFHCardCollectionCell.m in Sources */,
 				0AD4C1AA1C23105700385FF4 /* User.m in Sources */,
 				0AB1A0761C1F63A9003BA562 /* GFHDatabase.m in Sources */,
+				0A2C16F01C4549B100505B4C /* GFHScoresViewController.m in Sources */,
 				0AD4C1B11C23165C00385FF4 /* GFHLogInViewController.m in Sources */,
 				0A045C291C21DAC400A5006E /* GFHMatchViewController.m in Sources */,
 				0A2C16E41C42977600505B4C /* GFHOpponentCollectionCell.m in Sources */,

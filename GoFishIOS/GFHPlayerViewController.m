@@ -8,6 +8,7 @@
 
 #import "GFHPlayerViewController.h"
 #import "GFHMatchViewController.h"
+#import "GFHScoresViewController.h"
 #import "GFHRepository.h"
 #import "GFHCardCollectionCell.h"
 #import "KTCenterFlowLayout.h"
@@ -17,6 +18,7 @@
 static NSString * const CELL_ID = @"CardCell";
 
 @interface GFHPlayerViewController ()
+@property (nonatomic, strong) GFHScoresViewController *scoresViewController;
 @property (weak, nonatomic) IBOutlet UICollectionView *cardCollectionView;
 @property (weak, nonatomic) IBOutlet UILabel *playerNameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *playerIconImage;
@@ -36,6 +38,7 @@ static NSString * const CELL_ID = @"CardCell";
 - (void)setPlayer:(Player *)player {
     _player = player;
     [self setUpPlayerInfo];
+    [self.scoresViewController setUpScores];
 }
 
 - (void)setUpPlayerInfo {
@@ -63,6 +66,12 @@ static NSString * const CELL_ID = @"CardCell";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     ((GFHMatchViewController *)_parent).cardSelected = self.player.cards[indexPath.row];
+}
+
+// PrepareForSegue must be used by the GIVING controller so it can communicate information to a RECEIVING controller (in this case, GFHPlayerViewController)
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    self.scoresViewController = [segue destinationViewController];
+    self.scoresViewController.parent = self;
 }
 
 @end
